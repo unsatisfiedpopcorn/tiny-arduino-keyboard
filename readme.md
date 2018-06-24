@@ -8,6 +8,6 @@ You will require a [DFU Programmer](https://www.arduino.cc/en/Hacking/DFUProgram
 
 Script is written for ATMEGA16U2
 
-`firmware` is a directory for arduino firmwares taht will be accessed by the script.
+`firmware` is a directory for arduino firmwares that will be accessed by the script.
 
 TODO: Write the rest of the readme
