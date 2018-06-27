@@ -4,46 +4,19 @@ uint8_t buf[8] = { 0 };
 // buf[1] always 0.
 // buf[2] to buf[7] hold up to 6 keys pressed simultaneously. Order doesn't matter. 0 means no key pressed.
 
+#define PIN_BUTTON 5 
+
 void setup() {
     Serial.begin(9600);
-    /*delay(10000);*/
-    /*delay(2000);*/
-    /*delay(9999999);*/
+
+    pinMode(PIN_BUTTON, INPUT);
+    // Enable internal pull-ups
+    digitalWrite(PIN_BUTTON, 1);
 }
 
 void loop() {
 
     /*
-    // type "hello world" by pressing and releasing individual keys using the names of the keys.
-    pressKey("h"); releaseKey("h"); // remember to release keys, or it's like you are holding them down.
-    pressKey("e"); releaseKey("e");
-    pressKey("l"); releaseKey("l");
-    pressKey("l"); releaseKey("l");
-    pressKey("o"); releaseKey("o");
-    pressKey(" "); releaseKey(" ");
-    pressKey("w"); releaseKey("w");
-    pressKey("o"); releaseKey("o");
-    pressKey("r"); releaseKey("r");
-    pressKey("l"); releaseKey("l");
-    pressKey("d"); releaseKey("d");
-    pressKey(" "); releaseKey(" ");
-    releaseAllKeys();
-
-    // type "hello world" by pressing and releasing individual keys using the keycodes of the keys.
-    pressKey(11); releaseKey(11);
-    pressKey(8); releaseKey(8);
-    pressKey(15); releaseKey(15);
-    pressKey(15); releaseKey(15);
-    pressKey(18); releaseKey(18);
-    pressKey(44); releaseKey(44);
-    pressKey(26); releaseKey(26);
-    pressKey(18); releaseKey(18);
-    pressKey(21); releaseKey(21);
-    pressKey(15); releaseKey(15);
-    pressKey(7); releaseKey(7);
-    pressKey(44); releaseKey(44);
-    releaseAllKeys();
-
     // Press ctrl+c (e.g. cancel the current command if in terminal, or copy selected text).
     pressModifier("left_control");
     pressKey("c"); // press down C key.
@@ -62,15 +35,17 @@ void loop() {
     typeLiteralString("This is aWeSoMe!! :) Oh yeah.  I've got you now! ");
     */
 
-    pressModifier("left_gui");
-    delay(200);
-    pressModifier("left_shift");
-    delay(200);
-    pressKey("4");
-    delay(200);
-    releaseAllKeys();
+    int state = digitalRead(PIN_BUTTON);
+
+    if (state != 1) {
+        pressModifier("left_gui");
+        pressModifier("left_shift");
+        pressKey("4");
+        releaseAllKeys();
+        releaseAllModifiers();
+    }
     
-    delay(2000);
+//    delay(2000);
 }
 
 boolean isModifier(int keycode) {
