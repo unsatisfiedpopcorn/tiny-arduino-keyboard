@@ -10,10 +10,23 @@ import Cocoa
 
 class ViewController: NSViewController {
 
+    @IBOutlet weak var keyText: NSTextField!
+    @IBOutlet weak var buttonClick: NSButton!
+    @IBOutlet weak var label: NSTextField!
+    
+    @IBOutlet weak var shiftCheck: NSButton!
+    @IBOutlet weak var controlCheck: NSButton!
+    @IBOutlet weak var optionCheck: NSButton!
+    @IBOutlet weak var commandCheck: NSButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        shiftCheck.state = NSControl.StateValue.off
+        controlCheck.state = NSControl.StateValue.off
+        optionCheck.state = NSControl.StateValue.off
+        commandCheck.state = NSControl.StateValue.off
     }
 
     override var representedObject: Any? {
@@ -22,29 +35,48 @@ class ViewController: NSViewController {
         }
     }
 
-    @IBOutlet weak var keyText: NSTextField!
-    @IBOutlet weak var buttonClick: NSButton!
-    @IBOutlet weak var label: NSTextField!
 
     @IBAction func onButtonClick(_ sender: Any) {
-        var name = keyText.stringValue
-        if name.isEmpty {
-            name = "empty"
-        }
-        label.stringValue = name
+        let key = keyText.stringValue
+        if key.isEmpty {
+            label.stringValue = "== Please enter key value =="
+        } else {
+            var modifiers = [String]()
+            if (shiftCheck.state == NSControl.StateValue.on) {
+                modifiers.append("left_shift")
+            }
+            if (controlCheck.state == NSControl.StateValue.on) {
+                modifiers.append("left_control")
+            }
+            if (optionCheck.state == NSControl.StateValue.on) {
+                modifiers.append("left_alt")
+            }
+            if (commandCheck.state == NSControl.StateValue.on) {
+                modifiers.append("left_gui")
+            }
+            
+            var display = ""
+            if (modifiers.isEmpty) {
+                display = key
+            } else {
+                display = modifiers.joined(separator: " + ") + " + " + key
+            }
         
-        buttonHelper(input: name)
+            label.stringValue = display
+            
+            buttonHelper(input: key, modifiers: modifiers)
+        }
 
     }
     
 }
 
 
-func buttonHelper(input: String) {
+func buttonHelper(input: String, modifiers: [String]) {
     let documentUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0] //documents folder in app sandbox
     let sketchDirUrl = documentUrl.appendingPathComponent("tester")
 
-    //=== create working_sketch folder ===
+    //=== create 'tester' folder ===
     if (!directoryExistsAtPath(sketchDirUrl.path)) {
         do {
             try FileManager.default.createDirectory(atPath: sketchDirUrl.path, withIntermediateDirectories: true, attributes: nil)
@@ -71,22 +103,27 @@ func buttonHelper(input: String) {
     let cFile = "variables.c"
     
     let keystrokes = "\"" + input + "\""
-    var text = "extern char keys[];"
 
-    //write to file
+    //write to header file
+    var text = "extern char keys[];\n" + "extern char modifiers[4][20];"
     let headerUrl = sketchDirUrl.appendingPathComponent(headerFile)
     do {
         try text.write(to: headerUrl, atomically: false, encoding: .utf8)
     } catch {
-        print("error in wirint header")
+        print("error in writing header. Error:\(NSError.description)")
     }
     
-    text = "char keys[] = " + keystrokes + ";"
-
+    //write to c file
+    let modifierText = "char modifiers[4][20] = {\"" + modifiers.joined(separator: "\", \"") + "\"};"
+    text = "char keys[] = " + keystrokes + ";\n"
+    text += modifierText
     let cUrl = sketchDirUrl.appendingPathComponent(cFile)
     do {
         try text.write(to: cUrl, atomically: false, encoding: .utf8)
-    } catch {/* error handling here */}
+    } catch {
+        print("error in writing cfile. Error:\(NSError.description)")
+    }
+    
 }
 
 
