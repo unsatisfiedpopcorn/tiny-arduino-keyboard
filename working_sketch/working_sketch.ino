@@ -1,10 +1,16 @@
 /* USB Keyboard report buffer. Look up "usb keyboard report format" on Google to learn more. */
+#include "variables.h"
+
 uint8_t buf[8] = { 0 };
 // buf[0] is the modifier keys. bitwise OR them together. 0 means no modifiers. bit 0 is L CTRL, bit 1 is L SHIFT, bit 2 is L ALT, bit 3 is L GUI, bit 4 is R CTRL, bit 5 is R SHIFT, bit 6 is R ALT, and bit 7 is R GUI
 // buf[1] always 0.
 // buf[2] to buf[7] hold up to 6 keys pressed simultaneously. Order doesn't matter. 0 means no key pressed.
 
-#define PIN_BUTTON 5 
+#define PIN_BUTTON 7
+
+// variables.
+//extern String keys[];
+//extern String modifiers[];
 
 void setup() {
     Serial.begin(9600);
@@ -15,38 +21,34 @@ void setup() {
 }
 
 void loop() {
-
-    /*
-    // Press ctrl+c (e.g. cancel the current command if in terminal, or copy selected text).
-    pressModifier("left_control");
-    pressKey("c"); // press down C key.
-    releaseAllKeys(); // let go of all keys (in this case only the C key).
-    releaseAllModifiers(); // release ctrl.
-
-    // hold a modifier (left shift) then type "this is awesome!! " which will result in "THIS IS AWESOME!! ".
-    pressModifier("left_shift");
-    const char * sequence[] = {"t","h","i","s"," ","i","s","space","a","w","e","s","o","m","e","1","!"," "};
-    // Note that in the above sequence, the "1" and "!" refer to the same key, so we get two exclamation marks since shift is pressed.
-    pressSequenceOfKeys(sequence, sizeof(sequence)/sizeof(char *)); // they will be all caps.
-    releaseAllKeys();
-    releaseAllModifiers();
-
-    // type a literal string, automatically pressing and releasing left_shift as necessary for capital letters and symbols.
-    typeLiteralString("This is aWeSoMe!! :) Oh yeah.  I've got you now! ");
-    */
-
+//    Serial.println("loop");
     int state = digitalRead(PIN_BUTTON);
 
+//        String keys[] = {"4"};
+
+//        for (int m = 0; m < sizeof(modifiers) / sizeof(modifiers[0]); m++) {
+//          pressModifier(modifiers[m]);
+//        }
+//        for (int k = 0; k < sizeof(keys) / sizeof(keys[0]); k++) {
+//          pressKey(keys[k]);
+////          pressKey("1");
+////          Serial.println(keys[k]);
+//        } 
+
     if (state != 1) {
-        pressModifier("left_gui");
-        pressModifier("left_shift");
-        pressKey("4");
-        releaseAllKeys();
-        releaseAllModifiers();
+      for (int m = 0; m < sizeof(modifiers) / sizeof(modifiers[0]); m++) {
+        pressModifier(modifiers[m]);
+  //        Serial.println(modifiers[m]);
+      }
+      pressKey(keys);
+      releaseAllKeys();
+      releaseAllModifiers();
     }
     
-//    delay(2000);
+    delay(2000);
 }
+
+// =============================================================================================
 
 boolean isModifier(int keycode) {
     boolean result = false;
