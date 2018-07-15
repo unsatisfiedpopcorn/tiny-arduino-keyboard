@@ -9,6 +9,11 @@
 import Foundation
 
 class ArduinoIO {
+    private let boardType: String
+    
+    init(boardType: String) {
+        self.boardType = boardType
+    }
     
     // Method allows class to access shell commands
     @discardableResult
@@ -20,4 +25,15 @@ class ArduinoIO {
         task.waitUntilExit()
         return task.terminationStatus
     }
+    
+    // TODO: Takes in an Arduino sketch file then uploads via command line.
+    func upload(arduinoSketchFile filepath: String) -> Void {
+        ArduinoIO.shell();
+    }
+    
+    // TODO: Flashes 
+    func flashAsKeyboard() -> Void {
+        
+    }
+    
 }
