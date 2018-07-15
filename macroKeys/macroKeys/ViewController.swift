@@ -35,7 +35,6 @@ class ViewController: NSViewController {
         }
     }
 
-
     @IBAction func onButtonClick(_ sender: Any) {
         let key = keyText.stringValue
         if key.isEmpty {
