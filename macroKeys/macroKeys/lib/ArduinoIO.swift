@@ -17,7 +17,8 @@ class ArduinoIO {
     
     // Method allows class to access shell commands
     @discardableResult
-    private static func shell(_ args: String...) -> Int32 {
+//    private static func shell(_ args: String...) -> Int32 {
+    private static func shell(_ args: [String]) -> Int32 {
         let task = Process()
         task.launchPath = "/usr/bin/env"
         task.arguments = args
@@ -26,9 +27,15 @@ class ArduinoIO {
         return task.terminationStatus
     }
     
-    // TODO: Takes in an Arduino sketch file then uploads via command line.
-    func upload(arduinoSketchFile filepath: String) -> Void {
-        ArduinoIO.shell();
+    // TODO: Takes in an Arduino sketch folder then uploads via command line.
+//    func upload(arduinoSketchFile filepath: String) -> Void {
+//        ArduinoIO.shell();
+//    }
+    func upload(arduinoSketchFolder folderpath: String) -> Void {
+        var arguments = ["make", "-C", folderpath]
+        ArduinoIO.shell(arguments);
+        arguments = ["make", "upload", "-C", folderpath]
+        ArduinoIO.shell(arguments);
     }
     
     // TODO: Flashes 

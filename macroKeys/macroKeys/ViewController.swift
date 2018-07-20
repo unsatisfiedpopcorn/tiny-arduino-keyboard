@@ -27,6 +27,12 @@ class ViewController: NSViewController {
         controlCheck.state = NSControl.StateValue.off
         optionCheck.state = NSControl.StateValue.off
         commandCheck.state = NSControl.StateValue.off
+        
+        //monitor key events
+        NSEvent.addLocalMonitorForEvents(matching: .keyDown) {
+            self.keyDown(with: $0)
+            return $0
+        }
     }
 
     override var representedObject: Any? {
@@ -63,15 +69,63 @@ class ViewController: NSViewController {
         
             label.stringValue = display
             
-            buttonHelper(input: key, modifiers: modifiers)
+            // write
+            let sketchFolderDir = writeToFiles(input: key, modifiers: modifiers)
+            
+            // upload
+            let arduino = ArduinoIO(boardType: "uno")
+            arduino.upload(arduinoSketchFolder: sketchFolderDir)
         }
 
     }
     
+    
+    
+    @IBAction func bundleTest(_ sender: Any) {
+        //
+        let bundlePath = Bundle.main.path(forResource: "mainCode", ofType: ".txt")
+        
+        // write
+        let documentUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let sketchDirUrl = documentUrl.appendingPathComponent("blink")
+        let codeUrl = sketchDirUrl.appendingPathComponent("blink.cpp")
+        
+        do {
+            try FileManager.default.copyItem(atPath: bundlePath!, toPath: codeUrl.path)
+        } catch {
+            print("error in copying main sketch. Error:\(NSError.description)")
+        }
+        /*
+        do {
+            try text.write(to: codeUrl, atomically: false, encoding: .utf8)
+        } catch {
+            print("error in writing header. Error:\(NSError.description)")
+        }
+        */
+
+    }
+    
+    
+    override func keyDown(with event: NSEvent) {
+        /*
+        guard let e = event.characters else {
+            return
+        }
+        */
+        if (event.keyCode == 90) {
+            label.stringValue = "fn key pressed" //fn20
+        } else {
+            label.stringValue = String(event.keyCode)
+        }
+        print(event.keyCode)
+    }
+    
+
 }
 
 
-func buttonHelper(input: String, modifiers: [String]) {
+
+func writeToFiles(input: String, modifiers: [String]) -> String {
     let documentUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0] //documents folder in app sandbox
     let sketchDirUrl = documentUrl.appendingPathComponent("tester")
 
@@ -123,6 +177,7 @@ func buttonHelper(input: String, modifiers: [String]) {
         print("error in writing cfile. Error:\(NSError.description)")
     }
     
+    return sketchDirUrl.path
 }
 
 
