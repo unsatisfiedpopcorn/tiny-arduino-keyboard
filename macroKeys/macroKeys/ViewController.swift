@@ -8,6 +8,11 @@
 
 import Cocoa
 
+//var key = ""
+//var modifiers = [String]()
+var key = Key(keycode: UInt16(20), char: "3")
+var modifiers = [Modifier(char: "left_shift")]
+
 class ViewController: NSViewController {
 
     @IBOutlet weak var keyText: NSTextField!
@@ -28,10 +33,12 @@ class ViewController: NSViewController {
         optionCheck.state = NSControl.StateValue.off
         commandCheck.state = NSControl.StateValue.off
         
+        // Intercept First Responder
+        view.window?.makeFirstResponder(self);
         //monitor key events
-        NSEvent.addLocalMonitorForEvents(matching: .keyDown) {
+        NSEvent.addGlobalMonitorForEvents(matching: .keyDown) {
             self.keyDown(with: $0)
-            return $0
+//            return $0
         }
     }
 
@@ -42,11 +49,12 @@ class ViewController: NSViewController {
     }
 
     @IBAction func onButtonClick(_ sender: Any) {
-        let key = keyText.stringValue
+        /*
+        key = keyText.stringValue
         if key.isEmpty {
             label.stringValue = "== Please enter key value =="
         } else {
-            var modifiers = [String]()
+//            var modifiers = [String]()
             if (shiftCheck.state == NSControl.StateValue.on) {
                 modifiers.append("left_shift")
             }
@@ -68,16 +76,57 @@ class ViewController: NSViewController {
             }
         
             label.stringValue = display
-            
+         
+            /*
             // write
             let sketchFolderDir = writeToFiles(input: key, modifiers: modifiers)
             
             // upload
             let arduino = ArduinoIO(boardType: "uno")
             arduino.upload(arduinoSketchFolder: sketchFolderDir)
+            */
         }
+        */
 
     }
+    
+    
+    override func keyDown(with event: NSEvent) {
+        /*
+         guard let e = event.characters else {
+         return
+         }
+         */
+        let keyPressed = event.keyCode
+        //assuming Key and Modifier classes --> refer to lib folder
+        switch (keyPressed) {
+        case 50:
+            label.stringValue = "key pressed" //fn20 -> keycode=90
+            let src = CGEventSource(stateID: CGEventSourceStateID.hidSystemState)
+            let loc = CGEventTapLocation.cghidEventTap
+
+            // key events
+            let pressKey = CGEvent(keyboardEventSource: src, virtualKey: key.keycode, keyDown: true)
+            let releaseKey = CGEvent(keyboardEventSource: src, virtualKey: key.keycode, keyDown: false)
+            
+            // modifiers mask
+            var maskRawValue = UInt64(0)
+            for modi in modifiers {
+                maskRawValue = maskRawValue | modi.mask.rawValue
+            }
+            pressKey?.flags = CGEventFlags(rawValue: maskRawValue);
+
+            //press key
+            pressKey?.post(tap: loc)
+            releaseKey?.post(tap: loc)
+        default:
+            label.stringValue = String(event.keyCode)
+        }
+        print(event.keyCode)
+    }
+
+    
+
     
     
     
@@ -103,21 +152,6 @@ class ViewController: NSViewController {
         }
         */
 
-    }
-    
-    
-    override func keyDown(with event: NSEvent) {
-        /*
-        guard let e = event.characters else {
-            return
-        }
-        */
-        if (event.keyCode == 90) {
-            label.stringValue = "fn key pressed" //fn20
-        } else {
-            label.stringValue = String(event.keyCode)
-        }
-        print(event.keyCode)
     }
     
 

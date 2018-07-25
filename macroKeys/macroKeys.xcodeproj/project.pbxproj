@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		481783B721047DC00087545D /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481783B621047DC00087545D /* Key.swift */; };
 		4863123820EDDB2000790C71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4863123720EDDB2000790C71 /* AppDelegate.swift */; };
 		4863123A20EDDB2000790C71 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4863123920EDDB2000790C71 /* ViewController.swift */; };
 		4863123C20EDDB2100790C71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4863123B20EDDB2100790C71 /* Assets.xcassets */; };
@@ -14,6 +15,7 @@
 		4863124B20EDDB2200790C71 /* macroKeysTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4863124A20EDDB2200790C71 /* macroKeysTests.swift */; };
 		4863125620EDDB2200790C71 /* macroKeysUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4863125520EDDB2200790C71 /* macroKeysUITests.swift */; };
 		48A3482220FF7816005BF0FF /* mainCode.txt in Sources */ = {isa = PBXBuildFile; fileRef = 48A3482120FF7816005BF0FF /* mainCode.txt */; };
+		48D3A3FD2106C9C600E13DD5 /* Modifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D3A3FC2106C9C600E13DD5 /* Modifier.swift */; };
 		4BDA954C20F9C9DA00C1A0C0 /* ArduinoIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDA954B20F9C9DA00C1A0C0 /* ArduinoIO.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		481783B621047DC00087545D /* Key.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
 		4863123420EDDB2000790C71 /* macroKeys.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = macroKeys.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4863123720EDDB2000790C71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4863123920EDDB2000790C71 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +52,7 @@
 		4863125520EDDB2200790C71 /* macroKeysUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = macroKeysUITests.swift; sourceTree = "<group>"; };
 		4863125720EDDB2200790C71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		48A3482120FF7816005BF0FF /* mainCode.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = mainCode.txt; sourceTree = "<group>"; };
+		48D3A3FC2106C9C600E13DD5 /* Modifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifier.swift; sourceTree = "<group>"; };
 		4BDA954B20F9C9DA00C1A0C0 /* ArduinoIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArduinoIO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -134,6 +138,8 @@
 			isa = PBXGroup;
 			children = (
 				4BDA954B20F9C9DA00C1A0C0 /* ArduinoIO.swift */,
+				481783B621047DC00087545D /* Key.swift */,
+				48D3A3FC2106C9C600E13DD5 /* Modifier.swift */,
 			);
 			path = lib;
 			sourceTree = "<group>";
@@ -269,7 +275,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				481783B721047DC00087545D /* Key.swift in Sources */,
 				4BDA954C20F9C9DA00C1A0C0 /* ArduinoIO.swift in Sources */,
+				48D3A3FD2106C9C600E13DD5 /* Modifier.swift in Sources */,
 				48A3482220FF7816005BF0FF /* mainCode.txt in Sources */,
 				4863123A20EDDB2000790C71 /* ViewController.swift in Sources */,
 				4863123820EDDB2000790C71 /* AppDelegate.swift in Sources */,

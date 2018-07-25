@@ -728,7 +728,7 @@
                                         <font key="font" metaFont="system"/>
                                         <tabViewItems>
                                             <tabViewItem label="Key 1" identifier="" id="fH2-7E-asO">
-                                                <view key="view" ambiguous="YES" id="5Vo-4p-KZ3">
+                                                <view key="view" id="5Vo-4p-KZ3">
                                                     <rect key="frame" x="10" y="33" width="444" height="196"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
@@ -745,7 +745,7 @@
                                                 </view>
                                             </tabViewItem>
                                             <tabViewItem label="Key 2" identifier="" id="1pu-Ks-LNP">
-                                                <view key="view" id="TSY-CN-iRv">
+                                                <view key="view" ambiguous="YES" id="TSY-CN-iRv">
                                                     <rect key="frame" x="10" y="33" width="444" height="196"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
@@ -819,17 +819,6 @@
                                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                             </textFieldCell>
                                                         </textField>
-                                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dk3-3N-Rff">
-                                                            <rect key="frame" x="259" y="47" width="106" height="32"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                            <buttonCell key="cell" type="push" title="bundleTest" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Fep-LA-M4r">
-                                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                                <font key="font" metaFont="system"/>
-                                                            </buttonCell>
-                                                            <connections>
-                                                                <action selector="bundleTest:" target="XfG-lQ-9wD" id="ot0-2I-KEK"/>
-                                                            </connections>
-                                                        </button>
                                                     </subviews>
                                                 </view>
                                             </tabViewItem>
@@ -843,8 +832,28 @@
                                     <real value="3.4028234663852886e+38"/>
                                 </customSpacing>
                             </stackView>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dk3-3N-Rff">
+                                <rect key="frame" x="365" y="236" width="106" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="bundleTest" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Fep-LA-M4r">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="bundleTest:" target="XfG-lQ-9wD" id="ot0-2I-KEK"/>
+                                </connections>
+                            </button>
                         </subviews>
                     </view>
+                    <connections>
+                        <outlet property="buttonClick" destination="acL-1b-ZEA" id="koE-oa-CBC"/>
+                        <outlet property="commandCheck" destination="Eum-mE-9Qk" id="I1q-qA-FKZ"/>
+                        <outlet property="controlCheck" destination="cdo-dP-sqB" id="JBM-CX-jkn"/>
+                        <outlet property="keyText" destination="BWx-3g-JwC" id="La6-XA-fyv"/>
+                        <outlet property="label" destination="Bxx-1Y-SOL" id="dC7-uj-ynh"/>
+                        <outlet property="optionCheck" destination="FKP-DP-27v" id="jIS-SM-I88"/>
+                        <outlet property="shiftCheck" destination="HSk-c4-mzW" id="6NF-Ca-DKX"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
