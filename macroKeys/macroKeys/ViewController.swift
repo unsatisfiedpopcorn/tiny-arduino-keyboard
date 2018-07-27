@@ -10,7 +10,11 @@ import Cocoa
 
 class ViewController: NSViewController {
     
-    var keyDict = KeyDict.init()
+    var keyDict = KeyDict.init() {
+        didSet {
+            // Add update
+        }
+    }
     
     @IBOutlet weak var keyButton1: NSButton!
     @IBOutlet weak var keyButton2: NSButton!
@@ -21,6 +25,7 @@ class ViewController: NSViewController {
     
     @IBAction func keyButton(_ sender: NSButton) {
         if sender.state == NSButton.StateValue.on {
+            keyDict.startTransaction(onButton: sender)
             // Ensures that only one keyButton can be "on" at a time.
             for keyButton in keyButtonCollection.filter({$0 != sender}) {
                 onCommitDeactivate(button: keyButton!)
@@ -28,7 +33,7 @@ class ViewController: NSViewController {
             print("on")
             
         } else if sender.state == NSButton.StateValue.off {
-            // TODO: send keys to storage ??
+            onCommitDeactivate(button: sender)
         }
         updateView()
     }
@@ -52,6 +57,9 @@ class ViewController: NSViewController {
                 if $0.keyCode == 53 { // ESC is pressed, then rollback currently recorded keys
                     keyButton?.state = NSButton.StateValue.off
                     self.keyDict.rollback(onButton: keyButton!)
+                } else if $0.keyCode == 36 { // Enter is pressed, the commit currently recorded keys
+                    keyButton?.state = NSButton.StateValue.off
+                    self.keyDict.commit(onButton: keyButton!)
                 } else {
                     print($0.characters!)
                     // Update Dictionary of key mappings
@@ -66,8 +74,7 @@ class ViewController: NSViewController {
     }
     
     func updateView() {
-        for keyButton in keyButtonCollection {
-            keyButton!.title = keyDict.printKeys(ofButton: keyButton!)
-        }
+        keyButtonCollection
+            .forEach({$0?.title = keyDict.printKeys(ofButton: $0!)})
     }
 }

@@ -27,6 +27,11 @@ struct KeyDict {
         }
     }
     
+    mutating func startTransaction(onButton sender: NSButton) {
+        self.prevKeys[sender] = self.keys[sender]
+        self.keys[sender] = nil
+    }
+    
     mutating func commit(onButton sender: NSButton) {
         self.prevKeys[sender] = self.keys[sender]
     }
@@ -39,10 +44,15 @@ struct KeyDict {
         return self.keys[sender] != self.prevKeys[sender]
     }
     
+    
     func printKeys(ofButton sender: NSButton) -> String {
-        return keys[sender]?
+        guard let arrKeys = keys[sender], arrKeys != [] else {
+            return "No Mappings Found"
+        }
+        
+        return arrKeys
                     .compactMap({$0.characters?.uppercased()})
-                    .joined(separator: "+") ?? "No Mappings Found"
+                    .joined(separator: "+")
     }
     
 }
