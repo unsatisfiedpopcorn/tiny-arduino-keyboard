@@ -10,14 +10,17 @@ import Foundation
 import Cocoa
 
 struct KeyDict {
-    var keys : [NSButton: [String]] = [:]
-    var prevKeys : [NSButton: [String]] = [:]
+    var keys : [NSButton: [NSEvent]] = [:]
+    var prevKeys : [NSButton: [NSEvent]] = [:]
     
     mutating func addKey(loggedBy sender: NSButton, loggedKey key: NSEvent) {
-        var currKeys = self.keys[sender] ?? []
-        // Sanity check only add keys with characters
-        if let newChar = key.characters, !currKeys.contains(newChar){
-            currKeys.append(newChar)
+        var currKeys : [NSEvent] = self.keys[sender] ?? []
+        /**
+         Currently only allows keys with characters to be recorded.
+         Keys with the same keycodes will not be recorded.
+         */
+        if let _ = key.characters, !currKeys.contains(where: {$0.keyCode == key.keyCode}) {
+            currKeys.append(key)
             self.keys[sender] = currKeys
         } else {
             print("No key added")
@@ -33,7 +36,9 @@ struct KeyDict {
     }
     
     func printKeys(ofButton sender: NSButton) -> String {
-        return keys[sender]?.joined(separator: "+") ?? ""
+        return keys[sender]?
+                    .compactMap({$0.characters?.uppercased()})
+                    .joined(separator: "+") ?? "No Mappings Found"
     }
     
 }

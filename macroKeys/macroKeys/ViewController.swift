@@ -22,13 +22,17 @@ class ViewController: NSViewController {
     @IBAction func keyButton(_ sender: NSButton) {
         // TODO Clear dictionary ONLY if there is a change detected
         if sender.state == NSButton.StateValue.on {
-            
+            // Ensures that only one keyButton can be "on" at a time.
+            for keyButton in keyButtonCollection.filter({$0 != sender}) {
+                    keyButton?.state = NSButton.StateValue.off
+            }
             
             print("on")
             
         } else if sender.state == NSButton.StateValue.off {
             // TODO: send keys to storage ??
         }
+        updateView()
     }
     
     override func viewDidLoad() {
@@ -53,6 +57,7 @@ class ViewController: NSViewController {
             }
             return $0
         }
+        updateView()
     }
     
     func updateView() {
