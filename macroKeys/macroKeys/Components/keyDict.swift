@@ -27,8 +27,12 @@ struct KeyDict {
         }
     }
     
-    mutating func updatePrevKeys(onButton sender: NSButton) {
+    mutating func commit(onButton sender: NSButton) {
         self.prevKeys[sender] = self.keys[sender]
+    }
+    
+    mutating func rollback(onButton sender: NSButton) {
+        self.keys[sender] = self.prevKeys[sender]
     }
     
     func didUpdate(onButton sender: NSButton) -> Bool {
