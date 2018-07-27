@@ -710,7 +710,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Ui-nO-Uzh">
-                                <rect key="frame" x="48" y="235" width="76" height="15"/>
+                                <rect key="frame" x="48" y="235" width="138" height="15"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="inline" bezelStyle="inline" image="buttonCell:4df-DK-rKG:image" imagePosition="overlaps" alignment="left" borderStyle="border" inset="2" id="4df-DK-rKG">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
@@ -721,7 +721,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QU7-cp-dSb">
-                                <rect key="frame" x="48" y="213" width="76" height="15"/>
+                                <rect key="frame" x="48" y="213" width="138" height="15"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="inline" bezelStyle="inline" image="buttonCell:4Un-94-cXX:image" imagePosition="overlaps" alignment="left" borderStyle="border" inset="2" id="4Un-94-cXX">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
@@ -732,7 +732,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="thn-oQ-ldq">
-                                <rect key="frame" x="48" y="191" width="76" height="15"/>
+                                <rect key="frame" x="48" y="191" width="138" height="15"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="inline" bezelStyle="inline" image="buttonCell:6lR-DG-Xc6:image" imagePosition="overlaps" alignment="left" borderStyle="border" inset="2" id="6lR-DG-Xc6">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
@@ -743,7 +743,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AtO-8t-RcQ">
-                                <rect key="frame" x="48" y="169" width="76" height="15"/>
+                                <rect key="frame" x="48" y="169" width="138" height="15"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="inline" bezelStyle="inline" image="buttonCell:bgd-bO-bD4:image" imagePosition="overlaps" alignment="left" borderStyle="border" inset="2" id="bgd-bO-bD4">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
