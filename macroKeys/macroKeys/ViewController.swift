@@ -46,6 +46,7 @@ class ViewController: NSViewController {
             self.flagsChanged(with: $0)
             return $0
         }
+        
         NSEvent.addLocalMonitorForEvents(matching: .keyDown) {
             for keyButton in self.keyButtonCollection.filter({$0!.state == NSButton.StateValue.on}) {
                 if $0.keyCode == 53 { // ESC is pressed, then rollback currently recorded keys
@@ -63,7 +64,6 @@ class ViewController: NSViewController {
             return $0
         }
     }
-    
     
     func updateView() {
         for keyButton in keyButtonCollection {
