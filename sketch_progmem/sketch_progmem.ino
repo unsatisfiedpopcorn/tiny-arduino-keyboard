@@ -1,16 +1,17 @@
 /* USB Keyboard report buffer. Look up "usb keyboard report format" on Google to learn more. */
-#include "variables.h"
+#include <avr/pgmspace.h>
+
 
 uint8_t buf[8] = { 0 };
 // buf[0] is the modifier keys. bitwise OR them together. 0 means no modifiers. bit 0 is L CTRL, bit 1 is L SHIFT, bit 2 is L ALT, bit 3 is L GUI, bit 4 is R CTRL, bit 5 is R SHIFT, bit 6 is R ALT, and bit 7 is R GUI
 // buf[1] always 0.
 // buf[2] to buf[7] hold up to 6 keys pressed simultaneously. Order doesn't matter. 0 means no key pressed.
 
-#define PIN_BUTTON 7
+#define PIN_BUTTON 5 
 
-// variables.
-//extern String keys[];
-//extern String modifiers[];
+// PROGMEM variables.
+String prog_keys[10];
+String prog_modifiers[10];
 
 void setup() {
     Serial.begin(9600);
@@ -21,29 +22,30 @@ void setup() {
 }
 
 void loop() {
-//    Serial.println("loop");
+    Serial.println("loop");
     int state = digitalRead(PIN_BUTTON);
 
+    char keys[30];
+    strcpy_P(keys, (char*)pgm_read_word(&(prog_keys[10])));
+    char modifiers[30];
+    strcpy_P(modifiers, (char*)pgm_read_word(&(prog_modifiers[10])));
+
+
+//    if (state != 1) {
+//        String modifiers[] = {"left_gui", "left_shift"};
 //        String keys[] = {"4"};
 
-//        for (int m = 0; m < sizeof(modifiers) / sizeof(modifiers[0]); m++) {
-//          pressModifier(modifiers[m]);
-//        }
-//        for (int k = 0; k < sizeof(keys) / sizeof(keys[0]); k++) {
-//          pressKey(keys[k]);
-////          pressKey("1");
-////          Serial.println(keys[k]);
-//        } 
-
-    if (state != 1) {
-      for (int m = 0; m < sizeof(modifiers) / sizeof(modifiers[0]); m++) {
-        pressModifier(modifiers[m]);
-  //        Serial.println(modifiers[m]);
-      }
-      pressKey(keys);
-      releaseAllKeys();
-      releaseAllModifiers();
-    }
+        for (int m = 0; m < sizeof(modifiers) / sizeof(modifiers[0]); m++) {
+          pressModifier(modifiers[m]);
+        }
+        for (int k = 0; k < sizeof(keys) / sizeof(keys[0]); k++) {
+          pressKey(keys[k]);
+//          Serial.println(keys[k]);
+        } 
+      
+        releaseAllKeys();
+        releaseAllModifiers();
+//    }
     
     delay(2000);
 }

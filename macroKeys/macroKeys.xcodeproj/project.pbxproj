@@ -1,0 +1,602 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4863123820EDDB2000790C71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4863123720EDDB2000790C71 /* AppDelegate.swift */; };
+		4863123A20EDDB2000790C71 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4863123920EDDB2000790C71 /* ViewController.swift */; };
+		4863123C20EDDB2100790C71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4863123B20EDDB2100790C71 /* Assets.xcassets */; };
+		4863123F20EDDB2100790C71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4863123D20EDDB2100790C71 /* Main.storyboard */; };
+		4863124B20EDDB2200790C71 /* macroKeysTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4863124A20EDDB2200790C71 /* macroKeysTests.swift */; };
+		4863125620EDDB2200790C71 /* macroKeysUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4863125520EDDB2200790C71 /* macroKeysUITests.swift */; };
+		4B0A2A2F21070B4900C11ECA /* KeyloggerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0A2A2E21070B4900C11ECA /* KeyloggerButton.swift */; };
+		4BB25818210AE69800CF594B /* keyDict.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB25817210AE69800CF594B /* keyDict.swift */; };
+		4BDA954C20F9C9DA00C1A0C0 /* ArduinoIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDA954B20F9C9DA00C1A0C0 /* ArduinoIO.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4863124720EDDB2200790C71 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4863122C20EDDB2000790C71 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4863123320EDDB2000790C71;
+			remoteInfo = macroKeys;
+		};
+		4863125220EDDB2200790C71 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4863122C20EDDB2000790C71 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4863123320EDDB2000790C71;
+			remoteInfo = macroKeys;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4863123420EDDB2000790C71 /* macroKeys.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = macroKeys.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4863123720EDDB2000790C71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4863123920EDDB2000790C71 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4863123B20EDDB2100790C71 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4863123E20EDDB2100790C71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4863124020EDDB2100790C71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4863124120EDDB2100790C71 /* macroKeys.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macroKeys.entitlements; sourceTree = "<group>"; };
+		4863124620EDDB2200790C71 /* macroKeysTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = macroKeysTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4863124A20EDDB2200790C71 /* macroKeysTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = macroKeysTests.swift; sourceTree = "<group>"; };
+		4863124C20EDDB2200790C71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4863125120EDDB2200790C71 /* macroKeysUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = macroKeysUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4863125520EDDB2200790C71 /* macroKeysUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = macroKeysUITests.swift; sourceTree = "<group>"; };
+		4863125720EDDB2200790C71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4B0A2A2E21070B4900C11ECA /* KeyloggerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyloggerButton.swift; sourceTree = "<group>"; };
+		4BB25817210AE69800CF594B /* keyDict.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = keyDict.swift; sourceTree = "<group>"; };
+		4BDA954B20F9C9DA00C1A0C0 /* ArduinoIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArduinoIO.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4863123120EDDB2000790C71 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4863124320EDDB2200790C71 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4863124E20EDDB2200790C71 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4863122B20EDDB2000790C71 = {
+			isa = PBXGroup;
+			children = (
+				4863123620EDDB2000790C71 /* macroKeys */,
+				4863124920EDDB2200790C71 /* macroKeysTests */,
+				4863125420EDDB2200790C71 /* macroKeysUITests */,
+				4863123520EDDB2000790C71 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4863123520EDDB2000790C71 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4863123420EDDB2000790C71 /* macroKeys.app */,
+				4863124620EDDB2200790C71 /* macroKeysTests.xctest */,
+				4863125120EDDB2200790C71 /* macroKeysUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4863123620EDDB2000790C71 /* macroKeys */ = {
+			isa = PBXGroup;
+			children = (
+				4BDA954A20F9C97600C1A0C0 /* lib */,
+				4863123720EDDB2000790C71 /* AppDelegate.swift */,
+				4863123920EDDB2000790C71 /* ViewController.swift */,
+				4B0A2A2D2107052D00C11ECA /* Components */,
+				4863123B20EDDB2100790C71 /* Assets.xcassets */,
+				4863123D20EDDB2100790C71 /* Main.storyboard */,
+				4863124020EDDB2100790C71 /* Info.plist */,
+				4863124120EDDB2100790C71 /* macroKeys.entitlements */,
+			);
+			path = macroKeys;
+			sourceTree = "<group>";
+		};
+		4863124920EDDB2200790C71 /* macroKeysTests */ = {
+			isa = PBXGroup;
+			children = (
+				4863124A20EDDB2200790C71 /* macroKeysTests.swift */,
+				4863124C20EDDB2200790C71 /* Info.plist */,
+			);
+			path = macroKeysTests;
+			sourceTree = "<group>";
+		};
+		4863125420EDDB2200790C71 /* macroKeysUITests */ = {
+			isa = PBXGroup;
+			children = (
+				4863125520EDDB2200790C71 /* macroKeysUITests.swift */,
+				4863125720EDDB2200790C71 /* Info.plist */,
+			);
+			path = macroKeysUITests;
+			sourceTree = "<group>";
+		};
+		4B0A2A2D2107052D00C11ECA /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				4B0A2A2E21070B4900C11ECA /* KeyloggerButton.swift */,
+				4BB25817210AE69800CF594B /* keyDict.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		4BDA954A20F9C97600C1A0C0 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				4BDA954B20F9C9DA00C1A0C0 /* ArduinoIO.swift */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4863123320EDDB2000790C71 /* macroKeys */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4863125A20EDDB2200790C71 /* Build configuration list for PBXNativeTarget "macroKeys" */;
+			buildPhases = (
+				4863123020EDDB2000790C71 /* Sources */,
+				4863123120EDDB2000790C71 /* Frameworks */,
+				4863123220EDDB2000790C71 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = macroKeys;
+			productName = macroKeys;
+			productReference = 4863123420EDDB2000790C71 /* macroKeys.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4863124520EDDB2200790C71 /* macroKeysTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4863125D20EDDB2200790C71 /* Build configuration list for PBXNativeTarget "macroKeysTests" */;
+			buildPhases = (
+				4863124220EDDB2200790C71 /* Sources */,
+				4863124320EDDB2200790C71 /* Frameworks */,
+				4863124420EDDB2200790C71 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4863124820EDDB2200790C71 /* PBXTargetDependency */,
+			);
+			name = macroKeysTests;
+			productName = macroKeysTests;
+			productReference = 4863124620EDDB2200790C71 /* macroKeysTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		4863125020EDDB2200790C71 /* macroKeysUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4863126020EDDB2200790C71 /* Build configuration list for PBXNativeTarget "macroKeysUITests" */;
+			buildPhases = (
+				4863124D20EDDB2200790C71 /* Sources */,
+				4863124E20EDDB2200790C71 /* Frameworks */,
+				4863124F20EDDB2200790C71 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4863125320EDDB2200790C71 /* PBXTargetDependency */,
+			);
+			name = macroKeysUITests;
+			productName = macroKeysUITests;
+			productReference = 4863125120EDDB2200790C71 /* macroKeysUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4863122C20EDDB2000790C71 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0940;
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = "Chelsea Chia";
+				TargetAttributes = {
+					4863123320EDDB2000790C71 = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+					4863124520EDDB2200790C71 = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = 4863123320EDDB2000790C71;
+					};
+					4863125020EDDB2200790C71 = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = 4863123320EDDB2000790C71;
+					};
+				};
+			};
+			buildConfigurationList = 4863122F20EDDB2000790C71 /* Build configuration list for PBXProject "macroKeys" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4863122B20EDDB2000790C71;
+			productRefGroup = 4863123520EDDB2000790C71 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4863123320EDDB2000790C71 /* macroKeys */,
+				4863124520EDDB2200790C71 /* macroKeysTests */,
+				4863125020EDDB2200790C71 /* macroKeysUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4863123220EDDB2000790C71 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4863123C20EDDB2100790C71 /* Assets.xcassets in Resources */,
+				4863123F20EDDB2100790C71 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4863124420EDDB2200790C71 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4863124F20EDDB2200790C71 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4863123020EDDB2000790C71 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4BDA954C20F9C9DA00C1A0C0 /* ArduinoIO.swift in Sources */,
+				4BB25818210AE69800CF594B /* keyDict.swift in Sources */,
+				4B0A2A2F21070B4900C11ECA /* KeyloggerButton.swift in Sources */,
+				4863123A20EDDB2000790C71 /* ViewController.swift in Sources */,
+				4863123820EDDB2000790C71 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4863124220EDDB2200790C71 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4863124B20EDDB2200790C71 /* macroKeysTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4863124D20EDDB2200790C71 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4863125620EDDB2200790C71 /* macroKeysUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4863124820EDDB2200790C71 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4863123320EDDB2000790C71 /* macroKeys */;
+			targetProxy = 4863124720EDDB2200790C71 /* PBXContainerItemProxy */;
+		};
+		4863125320EDDB2200790C71 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4863123320EDDB2000790C71 /* macroKeys */;
+			targetProxy = 4863125220EDDB2200790C71 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		4863123D20EDDB2100790C71 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4863123E20EDDB2100790C71 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4863125820EDDB2200790C71 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4863125920EDDB2200790C71 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		4863125B20EDDB2200790C71 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = macroKeys/macroKeys.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = macroKeys/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = chelchia.macroKeys;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		4863125C20EDDB2200790C71 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = macroKeys/macroKeys.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = macroKeys/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = chelchia.macroKeys;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+		4863125E20EDDB2200790C71 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = macroKeysTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = chelchia.macroKeysTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/macroKeys.app/Contents/MacOS/macroKeys";
+			};
+			name = Debug;
+		};
+		4863125F20EDDB2200790C71 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = macroKeysTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = chelchia.macroKeysTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/macroKeys.app/Contents/MacOS/macroKeys";
+			};
+			name = Release;
+		};
+		4863126120EDDB2200790C71 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = macroKeysUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = chelchia.macroKeysUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TEST_TARGET_NAME = macroKeys;
+			};
+			name = Debug;
+		};
+		4863126220EDDB2200790C71 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = macroKeysUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = chelchia.macroKeysUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TEST_TARGET_NAME = macroKeys;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4863122F20EDDB2000790C71 /* Build configuration list for PBXProject "macroKeys" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4863125820EDDB2200790C71 /* Debug */,
+				4863125920EDDB2200790C71 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4863125A20EDDB2200790C71 /* Build configuration list for PBXNativeTarget "macroKeys" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4863125B20EDDB2200790C71 /* Debug */,
+				4863125C20EDDB2200790C71 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4863125D20EDDB2200790C71 /* Build configuration list for PBXNativeTarget "macroKeysTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4863125E20EDDB2200790C71 /* Debug */,
+				4863125F20EDDB2200790C71 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4863126020EDDB2200790C71 /* Build configuration list for PBXNativeTarget "macroKeysUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4863126120EDDB2200790C71 /* Debug */,
+				4863126220EDDB2200790C71 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4863122C20EDDB2000790C71 /* Project object */;
+}
