@@ -92,16 +92,11 @@ class ViewController: NSViewController {
     
     
     override func keyDown(with event: NSEvent) {
-        /*
-         guard let e = event.characters else {
-         return
-         }
-         */
         let keyPressed = event.keyCode
         //assuming Key and Modifier classes --> refer to lib folder
         switch (keyPressed) {
         case 50:
-            label.stringValue = "key pressed" //fn20 -> keycode=90
+            //fn20 -> keycode=90
             let src = CGEventSource(stateID: CGEventSourceStateID.hidSystemState)
             let loc = CGEventTapLocation.cghidEventTap
 
@@ -122,36 +117,6 @@ class ViewController: NSViewController {
         default:
             label.stringValue = String(event.keyCode)
         }
-        print(event.keyCode)
-    }
-
-    
-
-    
-    
-    
-    @IBAction func bundleTest(_ sender: Any) {
-        //
-        let bundlePath = Bundle.main.path(forResource: "mainCode", ofType: ".txt")
-        
-        // write
-        let documentUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        let sketchDirUrl = documentUrl.appendingPathComponent("blink")
-        let codeUrl = sketchDirUrl.appendingPathComponent("blink.cpp")
-        
-        do {
-            try FileManager.default.copyItem(atPath: bundlePath!, toPath: codeUrl.path)
-        } catch {
-            print("error in copying main sketch. Error:\(NSError.description)")
-        }
-        /*
-        do {
-            try text.write(to: codeUrl, atomically: false, encoding: .utf8)
-        } catch {
-            print("error in writing header. Error:\(NSError.description)")
-        }
-        */
-
     }
     
 

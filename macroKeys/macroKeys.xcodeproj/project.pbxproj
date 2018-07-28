@@ -14,7 +14,6 @@
 		4863123F20EDDB2100790C71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4863123D20EDDB2100790C71 /* Main.storyboard */; };
 		4863124B20EDDB2200790C71 /* macroKeysTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4863124A20EDDB2200790C71 /* macroKeysTests.swift */; };
 		4863125620EDDB2200790C71 /* macroKeysUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4863125520EDDB2200790C71 /* macroKeysUITests.swift */; };
-		48A3482220FF7816005BF0FF /* mainCode.txt in Sources */ = {isa = PBXBuildFile; fileRef = 48A3482120FF7816005BF0FF /* mainCode.txt */; };
 		48D3A3FD2106C9C600E13DD5 /* Modifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D3A3FC2106C9C600E13DD5 /* Modifier.swift */; };
 		4BDA954C20F9C9DA00C1A0C0 /* ArduinoIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDA954B20F9C9DA00C1A0C0 /* ArduinoIO.swift */; };
 /* End PBXBuildFile section */
@@ -51,7 +50,6 @@
 		4863125120EDDB2200790C71 /* macroKeysUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = macroKeysUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4863125520EDDB2200790C71 /* macroKeysUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = macroKeysUITests.swift; sourceTree = "<group>"; };
 		4863125720EDDB2200790C71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		48A3482120FF7816005BF0FF /* mainCode.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = mainCode.txt; sourceTree = "<group>"; };
 		48D3A3FC2106C9C600E13DD5 /* Modifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifier.swift; sourceTree = "<group>"; };
 		4BDA954B20F9C9DA00C1A0C0 /* ArduinoIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArduinoIO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -84,7 +82,6 @@
 		4863122B20EDDB2000790C71 = {
 			isa = PBXGroup;
 			children = (
-				48A3482120FF7816005BF0FF /* mainCode.txt */,
 				4863123620EDDB2000790C71 /* macroKeys */,
 				4863124920EDDB2200790C71 /* macroKeysTests */,
 				4863125420EDDB2200790C71 /* macroKeysUITests */,
@@ -278,7 +275,6 @@
 				481783B721047DC00087545D /* Key.swift in Sources */,
 				4BDA954C20F9C9DA00C1A0C0 /* ArduinoIO.swift in Sources */,
 				48D3A3FD2106C9C600E13DD5 /* Modifier.swift in Sources */,
-				48A3482220FF7816005BF0FF /* mainCode.txt in Sources */,
 				4863123A20EDDB2000790C71 /* ViewController.swift in Sources */,
 				4863123820EDDB2000790C71 /* AppDelegate.swift in Sources */,
 			);
