@@ -16,6 +16,10 @@
 		4B0A2A2F21070B4900C11ECA /* KeyloggerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0A2A2E21070B4900C11ECA /* KeyloggerButton.swift */; };
 		4BB25818210AE69800CF594B /* keyDict.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB25817210AE69800CF594B /* keyDict.swift */; };
 		4BDA954C20F9C9DA00C1A0C0 /* ArduinoIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDA954B20F9C9DA00C1A0C0 /* ArduinoIO.swift */; };
+		4BEC70BE210C6711007C440B /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEC70BD210C6711007C440B /* Key.swift */; };
+		4BEC70C0210C6747007C440B /* Modifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEC70BF210C6747007C440B /* Modifier.swift */; };
+		4BEC70C2210C6B02007C440B /* KeyboardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEC70C1210C6B02007C440B /* KeyboardData.swift */; };
+		4BEC70C5210C779C007C440B /* KeyboardDatastore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEC70C4210C779C007C440B /* KeyboardDatastore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +56,10 @@
 		4B0A2A2E21070B4900C11ECA /* KeyloggerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyloggerButton.swift; sourceTree = "<group>"; };
 		4BB25817210AE69800CF594B /* keyDict.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = keyDict.swift; sourceTree = "<group>"; };
 		4BDA954B20F9C9DA00C1A0C0 /* ArduinoIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArduinoIO.swift; sourceTree = "<group>"; };
+		4BEC70BD210C6711007C440B /* Key.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
+		4BEC70BF210C6747007C440B /* Modifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifier.swift; sourceTree = "<group>"; };
+		4BEC70C1210C6B02007C440B /* KeyboardData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardData.swift; sourceTree = "<group>"; };
+		4BEC70C4210C779C007C440B /* KeyboardDatastore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardDatastore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,7 +144,6 @@
 			isa = PBXGroup;
 			children = (
 				4B0A2A2E21070B4900C11ECA /* KeyloggerButton.swift */,
-				4BB25817210AE69800CF594B /* keyDict.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -144,9 +151,22 @@
 		4BDA954A20F9C97600C1A0C0 /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				4BEC70C3210C6C0C007C440B /* keyboardData */,
 				4BDA954B20F9C9DA00C1A0C0 /* ArduinoIO.swift */,
 			);
 			path = lib;
+			sourceTree = "<group>";
+		};
+		4BEC70C3210C6C0C007C440B /* keyboardData */ = {
+			isa = PBXGroup;
+			children = (
+				4BEC70BD210C6711007C440B /* Key.swift */,
+				4BEC70BF210C6747007C440B /* Modifier.swift */,
+				4BEC70C1210C6B02007C440B /* KeyboardData.swift */,
+				4BEC70C4210C779C007C440B /* KeyboardDatastore.swift */,
+				4BB25817210AE69800CF594B /* keyDict.swift */,
+			);
+			path = keyboardData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,10 +300,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				4BDA954C20F9C9DA00C1A0C0 /* ArduinoIO.swift in Sources */,
+				4BEC70C5210C779C007C440B /* KeyboardDatastore.swift in Sources */,
+				4BEC70C2210C6B02007C440B /* KeyboardData.swift in Sources */,
 				4BB25818210AE69800CF594B /* keyDict.swift in Sources */,
 				4B0A2A2F21070B4900C11ECA /* KeyloggerButton.swift in Sources */,
 				4863123A20EDDB2000790C71 /* ViewController.swift in Sources */,
 				4863123820EDDB2000790C71 /* AppDelegate.swift in Sources */,
+				4BEC70BE210C6711007C440B /* Key.swift in Sources */,
+				4BEC70C0210C6747007C440B /* Modifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

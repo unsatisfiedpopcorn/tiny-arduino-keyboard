@@ -10,52 +10,56 @@ import Cocoa
 
 class ViewController: NSViewController {
     
-    // UserDefaults.standard.object(forKey: "keyDict") as? KeyDict ??
-    var keyDict: KeyDict =  KeyDict.init()
-//    {
-//        didSet {
-//            print("didSet Triggered")
-//            UserDefaults.standard.set(keyDict, forKey: "keyDict")
-//        }
-//    }
-    
     @IBOutlet weak var keyButton1: NSButton!
     @IBOutlet weak var keyButton2: NSButton!
     @IBOutlet weak var keyButton3: NSButton!
     @IBOutlet weak var keyButton4: NSButton!
     
     lazy var keyButtonCollection = [keyButton1, keyButton2, keyButton3, keyButton4]
+    var keyboardDataCollection = [KeyboardData](repeating: KeyboardData.init(), count: 4) {
+        didSet {
+            //Update View
+            updateView()
+            // Saves changes to UserDefaults
+            if let encoded = try? JSONEncoder().encode(keyboardDataCollection) {
+                UserDefaults.standard.set(encoded, forKey: "SavedBindings")
+            }
+        }
+    }
     
     @IBAction func keyButton(_ sender: NSButton) {
+        let buttonIndex = keyButtonCollection.index(of: sender)!
         if sender.state == NSButton.StateValue.on {
-            keyDict.startTransaction(onButton: sender)
+            // Starts transaction on the corresponding keyboardData, allowing for rollbacks
+            keyboardDataCollection[buttonIndex].startTransaction()
             // Ensures that only one keyButton can be "on" at a time.
-            for keyButton in keyButtonCollection.filter({$0 != sender}) {
-                onCommitDeactivate(button: keyButton!)
-            }
+            keyButtonCollection
+                .enumerated()
+                .filter({$0.element != sender})
+                .forEach({onCommitDeactivate(index: $0.offset);})
             print("on")
             
         } else if sender.state == NSButton.StateValue.off {
-            onCommitDeactivate(button: sender)
+            // Turns off the button and commits transaction
+            onCommitDeactivate(index: buttonIndex)
         }
-        updateView()
     }
     
-    func onCommitDeactivate(button sender: NSButton) {
-        sender.state = NSButton.StateValue.off
-        keyDict.commit(onButton: sender)
+    func onCommitDeactivate(index: Int) {
+        keyButtonCollection[index]?.state = NSButton.StateValue.off
+        keyboardDataCollection[index].commit()
     }
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
-        updateView()
         
         NSEvent.addLocalMonitorForEvents(matching: .flagsChanged) {
             
             func printModifiers(_ keyEvent : NSEvent) {
-//                switch keyEvent.flags {
-//
-//                }
+                //                switch keyEvent.flags {
+                //
+                //                }
             }
             
             for keyButton in self.keyButtonCollection.filter({$0!.state == NSButton.StateValue.on}) {
@@ -93,37 +97,37 @@ class ViewController: NSViewController {
                 default:
                     print("no modifier keys are pressed")
                 }
-                // Update Dictionary of key mappings
-                //                    self.keyDict.addKey(loggedBy: keyButton!, loggedKey: $0)
             }
-            self.updateView()
             self.flagsChanged(with: $0)
             return $0
         }
         
-        NSEvent.addLocalMonitorForEvents(matching: .keyDown) {
-            for keyButton in self.keyButtonCollection.filter({$0!.state == NSButton.StateValue.on}) {
-                if $0.keyCode == 53 { // ESC is pressed, then rollback currently recorded keys
-                    keyButton?.state = NSButton.StateValue.off
-                    self.keyDict.rollback(onButton: keyButton!)
-                } else if $0.keyCode == 36 { // Enter is pressed, the commit currently recorded keys
-                    keyButton?.state = NSButton.StateValue.off
-                    self.keyDict.commit(onButton: keyButton!)
-                } else {
-                    print($0.characters!)
-                    // Update Dictionary of key mappings
-                    self.keyDict.addKey(loggedBy: keyButton!, loggedKey: $0)
-                }
+        NSEvent.addLocalMonitorForEvents(matching: .keyDown) { keyEvent in
+            // Perform actions on buttons which are on a on state
+            self.keyButtonCollection.enumerated()
+                .filter({$0.element!.state == NSButton.StateValue.on})
+                .forEach() {tuple in
+                    if keyEvent.keyCode == 53 { // ESC is pressed, then rollback currently recorded keys
+                        tuple.element?.state = NSButton.StateValue.off
+                        self.keyboardDataCollection[tuple.offset].rollback()
+                    } else if keyEvent.keyCode == 36 { // Enter is pressed, the commit currently recorded keys
+                        tuple.element?.state = NSButton.StateValue.off
+                        self.keyboardDataCollection[tuple.offset].commit()
+                    } else {
+                        print(keyEvent.characters!)
+                        // Update Dictionary of key mappings
+                        self.keyboardDataCollection[tuple.offset].add(keyEvent: keyEvent)
+                    }
             }
-            self.updateView()
-            self.keyDown(with: $0)
-            print(self.keyDict)
-            return $0
+            self.keyDown(with: keyEvent)
+            print(self.keyboardDataCollection)
+            return keyEvent
         }
     }
     
     func updateView() {
         keyButtonCollection
-            .forEach({$0?.title = keyDict.printKeys(ofButton: $0!)})
+            .enumerated()
+            .forEach({$0.element?.title = keyboardDataCollection[$0.offset].description})
     }
 }
