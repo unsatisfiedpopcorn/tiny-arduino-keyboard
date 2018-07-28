@@ -54,17 +54,24 @@ class ViewController: NSViewController {
         
         super.viewDidLoad()
         
-        NSEvent.addLocalMonitorForEvents(matching: .flagsChanged) {
-            
+        NSEvent.addLocalMonitorForEvents(matching: .flagsChanged) { keyEvent in
+            var event = CGEvent(source: nil)
+            //            CGEventFlags mods = CGEventGetFlags(event)
             func printModifiers(_ keyEvent : NSEvent) {
                 //                switch keyEvent.flags {
                 //
                 //                }
             }
             
-            for keyButton in self.keyButtonCollection.filter({$0!.state == NSButton.StateValue.on}) {
-                switch $0.modifierFlags.intersection(.deviceIndependentFlagsMask) {
+            self.keyButtonCollection.enumerated().filter({$0.element!.state == NSButton.StateValue.on}).forEach() {
+//                print(keyEvent.modifierFlags.rawValue & NSEvent.ModifierFlags.deviceIndependentFlagsMask.rawValue)
+//                print(UInt(event!.flags.rawValue) & NSEvent.ModifierFlags.deviceIndependentFlagsMask.rawValue)
+//                print(CGEventFlags.maskCommand)
+                let sanitizedMask = UInt64(keyEvent.modifierFlags.rawValue)
+                self.keyboardDataCollection[$0.offset].add(bitmask: sanitizedMask)
+                switch keyEvent.modifierFlags.intersection(.deviceIndependentFlagsMask) {
                 case [.shift]:
+                    
                     print("shift key is pressed")
                 case [.control]:
                     print("control key is pressed")
@@ -98,8 +105,8 @@ class ViewController: NSViewController {
                     print("no modifier keys are pressed")
                 }
             }
-            self.flagsChanged(with: $0)
-            return $0
+            self.flagsChanged(with: keyEvent)
+            return keyEvent
         }
         
         NSEvent.addLocalMonitorForEvents(matching: .keyDown) { keyEvent in
