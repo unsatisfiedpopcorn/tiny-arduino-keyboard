@@ -55,57 +55,14 @@ class ViewController: NSViewController {
         super.viewDidLoad()
         
         NSEvent.addLocalMonitorForEvents(matching: .flagsChanged) { keyEvent in
-            var event = CGEvent(source: nil)
-            //            CGEventFlags mods = CGEventGetFlags(event)
-            func printModifiers(_ keyEvent : NSEvent) {
-                //                switch keyEvent.flags {
-                //
-                //                }
-            }
             
-            self.keyButtonCollection.enumerated().filter({$0.element!.state == NSButton.StateValue.on}).forEach() {
-//                print(keyEvent.modifierFlags.rawValue & NSEvent.ModifierFlags.deviceIndependentFlagsMask.rawValue)
-//                print(UInt(event!.flags.rawValue) & NSEvent.ModifierFlags.deviceIndependentFlagsMask.rawValue)
-//                print(CGEventFlags.maskCommand)
-                let sanitizedMask = UInt64(keyEvent.modifierFlags.rawValue)
-                self.keyboardDataCollection[$0.offset].add(bitmask: sanitizedMask)
-                switch keyEvent.modifierFlags.intersection(.deviceIndependentFlagsMask) {
-                case [.shift]:
-                    
-                    print("shift key is pressed")
-                case [.control]:
-                    print("control key is pressed")
-                case [.option] :
-                    print("option key is pressed")
-                case [.command]:
-                    print("Command key is pressed")
-                case [.control, .shift]:
-                    print("control-shift keys are pressed")
-                case [.option, .shift]:
-                    print("option-shift keys are pressed")
-                case [.command, .shift]:
-                    print("command-shift keys are pressed")
-                case [.control, .option]:
-                    print("control-option keys are pressed")
-                case [.control, .command]:
-                    print("control-command keys are pressed")
-                case [.option, .command]:
-                    print("option-command keys are pressed")
-                case [.shift, .control, .option]:
-                    print("shift-control-option keys are pressed")
-                case [.shift, .control, .command]:
-                    print("shift-control-command keys are pressed")
-                case [.control, .option, .command]:
-                    print("control-option-command keys are pressed")
-                case [.shift, .command, .option]:
-                    print("shift-command-option keys are pressed")
-                case [.shift, .control, .option, .command]:
-                    print("shift-control-option-command keys are pressed")
-                default:
-                    print("no modifier keys are pressed")
-                }
+            self.keyButtonCollection
+                .enumerated()
+                .filter({$0.element!.state == NSButton.StateValue.on})
+                .forEach() {
+                    let sanitizedMask = UInt64(keyEvent.modifierFlags.rawValue)
+                    self.keyboardDataCollection[$0.offset].add(bitmask: sanitizedMask)
             }
-            self.flagsChanged(with: keyEvent)
             return keyEvent
         }
         
@@ -122,11 +79,11 @@ class ViewController: NSViewController {
                         self.keyboardDataCollection[tuple.offset].commit()
                     } else {
                         print(keyEvent.characters!)
+                        print(keyEvent.charactersIgnoringModifiers!)
                         // Update Dictionary of key mappings
                         self.keyboardDataCollection[tuple.offset].add(keyEvent: keyEvent)
                     }
             }
-            self.keyDown(with: keyEvent)
             print(self.keyboardDataCollection)
             return keyEvent
         }

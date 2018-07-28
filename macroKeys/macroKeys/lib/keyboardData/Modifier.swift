@@ -52,6 +52,7 @@ struct Modifier : Codable, Equatable {
         self.rawMask = 0
     }
     
+    // Deprecated init
 //    init(char: String) {
 //        self.char = char
 //        if (char == "left_shift") {
@@ -69,7 +70,6 @@ struct Modifier : Codable, Equatable {
     
     init(withBitmask bitmask: UInt64) {
         let sanitizedMask = bitmask & UInt64(NSEvent.ModifierFlags.deviceIndependentFlagsMask.rawValue)
-//        var charactersArray = [String]()
         self.rawMask = sanitizedMask
     }
     

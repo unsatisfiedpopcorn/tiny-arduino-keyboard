@@ -20,10 +20,7 @@ struct KeyboardData : Codable, CustomStringConvertible {
     var prevKeys : [Key]
     var prevModifier : Modifier
     public var description: String {
-        //        guard keys != [] else {
-        //            return "No Mappings Found"
-        //        }
-        //
+      
         let keysDescription = keys
             .compactMap({$0.characters?.uppercased()})
             .joined(separator: "+")
@@ -68,42 +65,41 @@ struct KeyboardData : Codable, CustomStringConvertible {
     }
     
     mutating func startTransaction() {
-        self.prevKeys = self.keys
-        self.keys = []
-        self.prevModifier = self.modifier
-        self.modifier = Modifier()
+        prevKeys = keys
+        keys = []
+        prevModifier = modifier
+        modifier = Modifier()
     }
     
     mutating func commit() {
-        self.prevKeys = self.keys
-        self.prevModifier = self.modifier
+        prevKeys = keys
+        prevModifier = modifier
     }
     
     mutating func rollback() {
-        self.keys = self.prevKeys
-        self.modifier = self.prevModifier
+        keys = prevKeys
+        modifier = prevModifier
     }
     
     @discardableResult
     mutating func add(keyEvent: NSEvent) -> Bool {
-        let newKey = Key.init(withEvent: keyEvent)
+        let newKey = Key(withEvent: keyEvent)
         
         if keys.contains(newKey) {
             print("No key added")
         } else {
-            self.keys.append(Key.init(withEvent: keyEvent))
-            print(self.keys)
+            keys.append(Key(withEvent: keyEvent))
         }
-        return self.keys == self.prevKeys
+        return keys == prevKeys
     }
     
     @discardableResult
     mutating func add(bitmask: UInt64) -> Bool {
-        self.modifier = self.modifier.or(bitmask: bitmask)
-        return self.prevModifier == self.modifier
+        modifier = modifier.or(bitmask: bitmask)
+        return prevModifier == modifier
     }
     
     func didUpdate(onButton sender: NSButton) -> Bool {
-        return self.keys != self.prevKeys
+        return keys != prevKeys
     }
 }
