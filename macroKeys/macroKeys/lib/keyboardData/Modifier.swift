@@ -7,14 +7,23 @@
 //
 import Foundation
 
-class Modifier : Codable {
-    let char: String
+struct Modifier : Codable, Equatable {
+    var char: String
     var mask: CGEventFlags {
         get {
             return CGEventFlags.init(rawValue: self.rawMask)
         }
     }
-    let rawMask: UInt64
+    var rawMask: UInt64
+    
+    static func == (lhs: Modifier, rhs: Modifier) -> Bool {
+        return lhs.rawMask == rhs.rawMask
+    }
+    
+    init() {
+        self.char = ""
+        self.rawMask = 0
+    }
     
     init(char: String) {
         self.char = char
