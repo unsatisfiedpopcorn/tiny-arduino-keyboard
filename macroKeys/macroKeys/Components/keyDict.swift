@@ -9,6 +9,7 @@
 import Foundation
 import Cocoa
 
+// TODO: Recognise modifier keys
 struct KeyDict {
     var keys : [NSButton: [NSEvent]] = [:]
     var prevKeys : [NSButton: [NSEvent]] = [:]
