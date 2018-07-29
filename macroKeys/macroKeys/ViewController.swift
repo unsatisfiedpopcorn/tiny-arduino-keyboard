@@ -87,11 +87,56 @@ class ViewController: NSViewController {
             print(self.keyboardDataCollection)
             return keyEvent
         }
+        
+        // Intercept First Responder
+        view.window?.makeFirstResponder(self);
+        
+        //monitor key events
+        NSEvent.addGlobalMonitorForEvents(matching: .keyDown) {
+            self.keyDown(with: $0)
+        }
     }
     
     func updateView() {
         keyButtonCollection
             .enumerated()
             .forEach({$0.element?.title = keyboardDataCollection[$0.offset].description})
+    }
+    
+    
+    override func keyDown(with event: NSEvent) {
+        let keyPressed = event.keyCode
+        //assuming Key and Modifier classes --> refer to lib folder
+        //fn20 -> keycode=90
+        switch (keyPressed) {
+        case 50:
+//            executeMapping(mapping: keyboardDataCollection[0])
+            print("` key pressed")
+        default:
+//            label.stringValue = String(event.keyCode)
+            print("")
+        }
+    }
+    
+    func executeMapping(mapping: KeyboardData) {
+        //fetch data stored
+        let keys = mapping.keys
+        let modifierMask = mapping.mask
+        
+        let src = CGEventSource(stateID: CGEventSourceStateID.hidSystemState)
+        let loc = CGEventTapLocation.cghidEventTap
+        
+        // key events
+        for key in keys {
+            let pressKey = CGEvent(keyboardEventSource: src, virtualKey: key.keycode, keyDown: true)
+            let releaseKey = CGEvent(keyboardEventSource: src, virtualKey: key.keycode, keyDown: false)
+            
+            // modifiers mask
+            pressKey?.flags = modifierMask
+            
+            //press key
+            pressKey?.post(tap: loc)
+            releaseKey?.post(tap: loc)
+        }
     }
 }
