@@ -16,16 +16,13 @@ class ViewController: NSViewController {
     @IBOutlet weak var keyButton4: NSButton!
     
     lazy var keyButtonCollection = [keyButton1, keyButton2, keyButton3, keyButton4]
-    
-    var keyboardDataCollection = {
-        () -> [KeyboardData] in  // Uses IIFE to load UserDefaults, if nil then does a fresh init
-        if let data = UserDefaults.standard.data(forKey: "SavedBindings") {
-            if let decodedData = try? JSONDecoder().decode([KeyboardData].self, from: data) {
+    var keyboardDataCollection = { () -> [KeyboardData] in  // Uses IIFE to load UserDefaults, if nil then does a fresh init
+            if let data = UserDefaults.standard.data(forKey: "SavedBindings") , let decodedData = try? JSONDecoder().decode([KeyboardData].self, from: data) {
                 return decodedData
+            } else {
+                return [KeyboardData](repeating: KeyboardData.init(), count: 4)
             }
-        }
-        return [KeyboardData](repeating: KeyboardData.init(), count: 4)
-        }() {
+        }() { // This didSet belongs to keyboardDataCollection
         didSet {
             //Update View
             updateView()
@@ -36,6 +33,21 @@ class ViewController: NSViewController {
         }
     }
     
+    /*
+     Updates the view by repopulating the button.title with its corresponding keyboardData
+     */
+    func updateView() {
+        keyButtonCollection
+            .enumerated()
+            .forEach({$0.element?.title = keyboardDataCollection[$0.offset].description})
+    }
+    
+    /**
+     Triggers actions on the toggling of states
+     From off to on, keyButton will start a transaction to record keystrokes
+     From on to off, keyButton will commit the transaction
+     For rollback, see local monitor that handles an ESC keypress below
+    */
     @IBAction func keyButton(_ sender: NSButton) {
         let buttonIndex = keyButtonCollection.index(of: sender)!
         if sender.state == NSButton.StateValue.on {
@@ -54,13 +66,20 @@ class ViewController: NSViewController {
         }
     }
     
+    /**
+     Commits the changes to the keyboardData and deactivates the corresponding buttons
+    */
     func onCommitDeactivate(index: Int) {
         keyButtonCollection[index]?.state = NSButton.StateValue.off
         keyboardDataCollection[index].commit()
     }
     
+    /**
+     Sets up local monitors to record keystrokes
+     Sets up global monitors to rebind the keys
+     Updates view on load
+    */
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         // Captures Modifier keys to UI to store for remapping
         NSEvent.addLocalMonitorForEvents(matching: .flagsChanged) { keyEvent in
@@ -109,13 +128,6 @@ class ViewController: NSViewController {
         }
         updateView()
     }
-    
-    func updateView() {
-        keyButtonCollection
-            .enumerated()
-            .forEach({$0.element?.title = keyboardDataCollection[$0.offset].description})
-    }
-    
     
     override func keyDown(with event: NSEvent) {
         let keyPressed = event.keyCode
