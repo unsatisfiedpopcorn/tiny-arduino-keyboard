@@ -16,7 +16,16 @@ class ViewController: NSViewController {
     @IBOutlet weak var keyButton4: NSButton!
     
     lazy var keyButtonCollection = [keyButton1, keyButton2, keyButton3, keyButton4]
-    var keyboardDataCollection = [KeyboardData](repeating: KeyboardData.init(), count: 4) {
+    
+    var keyboardDataCollection = {
+        () -> [KeyboardData] in  // Uses IIFE to load UserDefaults, if nil then does a fresh init
+        if let data = UserDefaults.standard.data(forKey: "SavedBindings") {
+            if let decodedData = try? JSONDecoder().decode([KeyboardData].self, from: data) {
+                return decodedData
+            }
+        }
+        return [KeyboardData](repeating: KeyboardData.init(), count: 4)
+        }() {
         didSet {
             //Update View
             updateView()
@@ -53,7 +62,7 @@ class ViewController: NSViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
+        // Captures Modifier keys to UI to store for remapping
         NSEvent.addLocalMonitorForEvents(matching: .flagsChanged) { keyEvent in
             
             self.keyButtonCollection
@@ -65,21 +74,24 @@ class ViewController: NSViewController {
             }
             return keyEvent
         }
-        
+        /**
+         if ESC is pressed : rollback currently recorded keys
+         else if Enter is pressed: commit currently recorded keys
+         else: Captures keys to UI to store for remapping
+         */
         NSEvent.addLocalMonitorForEvents(matching: .keyDown) { keyEvent in
-            // Perform actions on buttons which are on a on state
-            self.keyButtonCollection.enumerated()
+            // Perform actions on buttons which are on a "on" state
+            self.keyButtonCollection
+                .enumerated()
                 .filter({$0.element!.state == NSButton.StateValue.on})
-                .forEach() {tuple in
-                    if keyEvent.keyCode == 53 { // ESC is pressed, then rollback currently recorded keys
+                .forEach() { (tuple) in
+                    if keyEvent.keyCode == 53 { // ESC is pressed
                         tuple.element?.state = NSButton.StateValue.off
                         self.keyboardDataCollection[tuple.offset].rollback()
-                    } else if keyEvent.keyCode == 36 { // Enter is pressed, the commit currently recorded keys
+                    } else if keyEvent.keyCode == 36 { // Enter is pressed
                         tuple.element?.state = NSButton.StateValue.off
                         self.keyboardDataCollection[tuple.offset].commit()
                     } else {
-                        print(keyEvent.characters!)
-                        print(keyEvent.charactersIgnoringModifiers!)
                         // Update Dictionary of key mappings
                         self.keyboardDataCollection[tuple.offset].add(keyEvent: keyEvent)
                     }
@@ -91,10 +103,11 @@ class ViewController: NSViewController {
         // Intercept First Responder
         view.window?.makeFirstResponder(self);
         
-        //monitor key events
+        // Monitor global key events for remapping
         NSEvent.addGlobalMonitorForEvents(matching: .keyDown) {
             self.keyDown(with: $0)
         }
+        updateView()
     }
     
     func updateView() {
@@ -110,10 +123,10 @@ class ViewController: NSViewController {
         //fn20 -> keycode=90
         switch (keyPressed) {
         case 50:
-//            executeMapping(mapping: keyboardDataCollection[0])
+            //            executeMapping(mapping: keyboardDataCollection[0])
             print("` key pressed")
         default:
-//            label.stringValue = String(event.keyCode)
+            //            label.stringValue = String(event.keyCode)
             print("")
         }
     }
