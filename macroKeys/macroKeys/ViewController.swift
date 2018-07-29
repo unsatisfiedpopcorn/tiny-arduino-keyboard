@@ -78,9 +78,17 @@ class ViewController: NSViewController {
      Sets up local monitors to record keystrokes
      Sets up global monitors to rebind the keys
      Updates view on load
+     Checks for accessibilty and prompts the user if there's no access given
     */
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // options is declared to issue a prompt requesting for accessibility if not given
+        let options: NSDictionary = [kAXTrustedCheckOptionPrompt.takeUnretainedValue() as String : true]
+        // This function checks for accessiblity returns true if there is access else false
+        // As a side effect it will spawn a window on no access
+        AXIsProcessTrustedWithOptions(options)
+        
         // Captures Modifier keys to UI to store for remapping
         NSEvent.addLocalMonitorForEvents(matching: .flagsChanged) { keyEvent in
             
