@@ -28,7 +28,7 @@ struct KeyboardData : Codable, CustomStringConvertible {
         let modDescription = modifier.char // modifer.char returns all the keys, separated with a "+"
         // Handling different cases, treating "" to be a psuedo-nil
         if keysDescription == "" && modDescription == "" {
-            return "No Mappings Found"
+            return ""
         } else if modDescription == "" {
             return keysDescription
         } else if keysDescription == "" {

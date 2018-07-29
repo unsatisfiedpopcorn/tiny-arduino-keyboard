@@ -9,7 +9,7 @@
 import Cocoa
 
 class ViewController: NSViewController {
-
+    
     @IBOutlet weak var keyButton1: NSButton!
     @IBOutlet weak var keyButton2: NSButton!
     @IBOutlet weak var keyButton3: NSButton!
@@ -17,11 +17,11 @@ class ViewController: NSViewController {
     
     lazy var keyButtonCollection = [keyButton1, keyButton2, keyButton3, keyButton4]
     var keyboardDataCollection = { () -> [KeyboardData] in  // Uses IIFE to load UserDefaults, if nil then does a fresh init
-            if let data = UserDefaults.standard.data(forKey: "SavedBindings") , let decodedData = try? JSONDecoder().decode([KeyboardData].self, from: data) {
-                return decodedData
-            } else {
-                return [KeyboardData](repeating: KeyboardData.init(), count: 4)
-            }
+        if let data = UserDefaults.standard.data(forKey: "SavedBindings") , let decodedData = try? JSONDecoder().decode([KeyboardData].self, from: data) {
+            return decodedData
+        } else {
+            return [KeyboardData](repeating: KeyboardData.init(), count: 4)
+        }
         }() { // This didSet belongs to keyboardDataCollection
         didSet {
             //Update View
@@ -37,20 +37,28 @@ class ViewController: NSViewController {
      Updates the view by repopulating the button.title with its corresponding keyboardData
      */
     func updateView() {
-      
         keyButtonCollection
             .enumerated()
-            .forEach({$0.element?.title = keyboardDataCollection[$0.offset].description})
+            .forEach({
+                let button = $0.element!
+                let index = $0.offset
+                let keyboardDataDescription = keyboardDataCollection[index].description
+                /**
+                 If keyboardData is empty, display "Press to record"
+                 Else diplay the current keyboardData
+                 */
+                button.title = (button.state == NSButton.StateValue.off &&
+                    keyboardDataDescription == "") ?
+                        "   Press to record" : "   " + keyboardDataDescription
+            })
     }
-    
-    
     
     /**
      Triggers actions on the toggling of states
      From off to on, keyButton will start a transaction to record keystrokes
      From on to off, keyButton will commit the transaction
      For rollback, see local monitor that handles an ESC keypress below
-    */
+     */
     @IBAction func keyButton(_ sender: NSButton) {
         let buttonIndex = keyButtonCollection.index(of: sender)!
         if sender.state == NSButton.StateValue.on {
@@ -71,7 +79,7 @@ class ViewController: NSViewController {
     
     /**
      Commits the changes to the keyboardData and deactivates the corresponding buttons
-    */
+     */
     func onCommitDeactivate(index: Int) {
         keyButtonCollection[index]?.state = NSButton.StateValue.off
         keyboardDataCollection[index].commit()
@@ -82,7 +90,7 @@ class ViewController: NSViewController {
      Sets up global monitors to rebind the keys
      Updates view on load
      Checks for accessibilty and prompts the user if there's no access given
-    */
+     */
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -110,7 +118,7 @@ class ViewController: NSViewController {
          else: Captures keys to UI to store for remapping
          */
         NSEvent.addLocalMonitorForEvents(matching: .keyDown) { keyEvent in
-        
+            
             // Perform actions on buttons which are on a "on" state
             self.keyButtonCollection
                 .enumerated()
