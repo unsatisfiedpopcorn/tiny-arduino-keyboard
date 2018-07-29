@@ -9,7 +9,7 @@
 import Cocoa
 
 class ViewController: NSViewController {
-    
+
     @IBOutlet weak var keyButton1: NSButton!
     @IBOutlet weak var keyButton2: NSButton!
     @IBOutlet weak var keyButton3: NSButton!
@@ -37,10 +37,13 @@ class ViewController: NSViewController {
      Updates the view by repopulating the button.title with its corresponding keyboardData
      */
     func updateView() {
+      
         keyButtonCollection
             .enumerated()
             .forEach({$0.element?.title = keyboardDataCollection[$0.offset].description})
     }
+    
+    
     
     /**
      Triggers actions on the toggling of states
@@ -107,6 +110,7 @@ class ViewController: NSViewController {
          else: Captures keys to UI to store for remapping
          */
         NSEvent.addLocalMonitorForEvents(matching: .keyDown) { keyEvent in
+        
             // Perform actions on buttons which are on a "on" state
             self.keyButtonCollection
                 .enumerated()
@@ -126,9 +130,6 @@ class ViewController: NSViewController {
             print(self.keyboardDataCollection)
             return keyEvent
         }
-        
-        // Intercept First Responder
-        view.window?.makeFirstResponder(self);
         
         // Monitor global key events for remapping
         NSEvent.addGlobalMonitorForEvents(matching: .keyDown) {
