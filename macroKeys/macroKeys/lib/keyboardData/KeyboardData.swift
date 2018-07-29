@@ -102,4 +102,22 @@ struct KeyboardData : Codable, CustomStringConvertible {
     func didUpdate(onButton sender: NSButton) -> Bool {
         return keys != prevKeys
     }
+    
+    func executeMapping() {
+        let src = CGEventSource(stateID: CGEventSourceStateID.hidSystemState)
+        let loc = CGEventTapLocation.cghidEventTap
+        
+        // key events
+        for key in self.keys {
+            let pressKey = CGEvent(keyboardEventSource: src, virtualKey: key.keycode, keyDown: true)
+            let releaseKey = CGEvent(keyboardEventSource: src, virtualKey: key.keycode, keyDown: false)
+            
+            // modifiers mask
+            pressKey?.flags = self.mask
+            
+            //press key
+            pressKey?.post(tap: loc)
+            releaseKey?.post(tap: loc)
+        }
+    }
 }

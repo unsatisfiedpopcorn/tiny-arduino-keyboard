@@ -134,41 +134,19 @@ class ViewController: NSViewController {
         switch (keyPressed) {
         case 64:
             //f17
-            executeMapping(mapping: keyboardDataCollection[0])
+            keyboardDataCollection[0].executeMapping()
         case 79:
             //f18
-            executeMapping(mapping: keyboardDataCollection[1])
+            keyboardDataCollection[1].executeMapping()
         case 80:
             //f19
-            executeMapping(mapping: keyboardDataCollection[2])
+            keyboardDataCollection[2].executeMapping()
         case 90:
             //f20
-            executeMapping(mapping: keyboardDataCollection[3])
+            keyboardDataCollection[3].executeMapping()
         default:
             //            label.stringValue = String(event.keyCode)
             print("")
-        }
-    }
-    
-    func executeMapping(mapping: KeyboardData) {
-        //fetch data stored
-        let keys = mapping.keys
-        let modifierMask = mapping.mask
-        
-        let src = CGEventSource(stateID: CGEventSourceStateID.hidSystemState)
-        let loc = CGEventTapLocation.cghidEventTap
-        
-        // key events
-        for key in keys {
-            let pressKey = CGEvent(keyboardEventSource: src, virtualKey: key.keycode, keyDown: true)
-            let releaseKey = CGEvent(keyboardEventSource: src, virtualKey: key.keycode, keyDown: false)
-            
-            // modifiers mask
-            pressKey?.flags = modifierMask
-            
-            //press key
-            pressKey?.post(tap: loc)
-            releaseKey?.post(tap: loc)
         }
     }
 }
