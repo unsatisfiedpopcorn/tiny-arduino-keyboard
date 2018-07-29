@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "macroKeys/ViewController.swift"
-            timestampString = "554535496.563737"
+            timestampString = "554540848.698339"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "143"
-            endingLineNumber = "143">
+            startingLineNumber = "152"
+            endingLineNumber = "152">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -24,11 +24,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "macroKeys/ViewController.swift"
-            timestampString = "554535496.564168"
+            timestampString = "554540848.698787"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "143"
-            endingLineNumber = "143">
+            startingLineNumber = "152"
+            endingLineNumber = "152">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -38,11 +38,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "macroKeys/ViewController.swift"
-            timestampString = "554535496.564401"
+            timestampString = "554540848.699071"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "143"
-            endingLineNumber = "143">
+            startingLineNumber = "152"
+            endingLineNumber = "152">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
@@ -84,11 +84,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "macroKeys/ViewController.swift"
-            timestampString = "554535496.564618"
+            timestampString = "554540848.6993591"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "143"
-            endingLineNumber = "143">
+            startingLineNumber = "152"
+            endingLineNumber = "152">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -98,27 +98,59 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "macroKeys/ViewController.swift"
-            timestampString = "554535496.564853"
+            timestampString = "554540848.699618"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "143"
-            endingLineNumber = "143">
+            startingLineNumber = "152"
+            endingLineNumber = "152">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "macroKeys/ViewController.swift"
-            timestampString = "554535496.565091"
+            timestampString = "554540848.6998841"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "103"
             endingLineNumber = "103"
             landmarkName = "updateView()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "macroKeys.ViewController.updateView() -&gt; ()"
+                  moduleName = "macroKeys"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/chelseachia/Desktop/orbital/tiny-arduino-keyboard/macroKeys/macroKeys/ViewController.swift"
+                  timestampString = "554538980.615494"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "103"
+                  endingLineNumber = "103"
+                  offsetFromSymbolStart = "176">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 ((offset: Swift.Int, element: Swift.Optional&lt;__ObjC.NSButton&gt;)) -&gt; () in macroKeys.ViewController.updateView() -&gt; ()"
+                  moduleName = "macroKeys"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/chelseachia/Desktop/orbital/tiny-arduino-keyboard/macroKeys/macroKeys/ViewController.swift"
+                  timestampString = "554538980.618663"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "103"
+                  endingLineNumber = "103"
+                  offsetFromSymbolStart = "25">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -128,11 +160,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "macroKeys/ViewController.swift"
-            timestampString = "554535496.56533"
+            timestampString = "554540848.700169"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "142"
-            endingLineNumber = "142"
+            startingLineNumber = "151"
+            endingLineNumber = "151"
             landmarkName = "ViewController"
             landmarkType = "3">
          </BreakpointContent>

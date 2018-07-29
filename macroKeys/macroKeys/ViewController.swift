@@ -110,7 +110,16 @@ class ViewController: NSViewController {
         //fn20 -> keycode=90
         switch (keyPressed) {
         case 50:
-//            executeMapping(mapping: keyboardDataCollection[0])
+            executeMapping(mapping: keyboardDataCollection[0])
+            print("` key pressed")
+        case 91:
+            executeMapping(mapping: keyboardDataCollection[1])
+            print("` key pressed")
+        case 92:
+            executeMapping(mapping: keyboardDataCollection[2])
+            print("` key pressed")
+        case 93:
+            executeMapping(mapping: keyboardDataCollection[3])
             print("` key pressed")
         default:
 //            label.stringValue = String(event.keyCode)
