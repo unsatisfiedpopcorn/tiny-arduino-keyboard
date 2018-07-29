@@ -14,6 +14,10 @@
 		4863124B20EDDB2200790C71 /* macroKeysTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4863124A20EDDB2200790C71 /* macroKeysTests.swift */; };
 		4863125620EDDB2200790C71 /* macroKeysUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4863125520EDDB2200790C71 /* macroKeysUITests.swift */; };
 		4BDA954C20F9C9DA00C1A0C0 /* ArduinoIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDA954B20F9C9DA00C1A0C0 /* ArduinoIO.swift */; };
+		4BEAF61C210DF71B00E7E888 /* key2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4BEAF618210DF71A00E7E888 /* key2.jpg */; };
+		4BEAF61D210DF71B00E7E888 /* key1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4BEAF619210DF71A00E7E888 /* key1.jpg */; };
+		4BEAF61E210DF71B00E7E888 /* key4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4BEAF61A210DF71A00E7E888 /* key4.jpg */; };
+		4BEAF61F210DF71B00E7E888 /* key3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4BEAF61B210DF71B00E7E888 /* key3.jpg */; };
 		4BEC70BE210C6711007C440B /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEC70BD210C6711007C440B /* Key.swift */; };
 		4BEC70C0210C6747007C440B /* Modifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEC70BF210C6747007C440B /* Modifier.swift */; };
 		4BEC70C2210C6B02007C440B /* KeyboardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEC70C1210C6B02007C440B /* KeyboardData.swift */; };
@@ -51,6 +55,10 @@
 		4863125520EDDB2200790C71 /* macroKeysUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = macroKeysUITests.swift; sourceTree = "<group>"; };
 		4863125720EDDB2200790C71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4BDA954B20F9C9DA00C1A0C0 /* ArduinoIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArduinoIO.swift; sourceTree = "<group>"; };
+		4BEAF618210DF71A00E7E888 /* key2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = key2.jpg; sourceTree = "<group>"; };
+		4BEAF619210DF71A00E7E888 /* key1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = key1.jpg; sourceTree = "<group>"; };
+		4BEAF61A210DF71A00E7E888 /* key4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = key4.jpg; sourceTree = "<group>"; };
+		4BEAF61B210DF71B00E7E888 /* key3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = key3.jpg; sourceTree = "<group>"; };
 		4BEC70BD210C6711007C440B /* Key.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
 		4BEC70BF210C6747007C440B /* Modifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifier.swift; sourceTree = "<group>"; };
 		4BEC70C1210C6B02007C440B /* KeyboardData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardData.swift; sourceTree = "<group>"; };
@@ -105,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				4BDA954A20F9C97600C1A0C0 /* lib */,
+				4BEAF620210DF72600E7E888 /* Assets */,
 				4863123720EDDB2000790C71 /* AppDelegate.swift */,
 				4863123920EDDB2000790C71 /* ViewController.swift */,
 				4863123B20EDDB2100790C71 /* Assets.xcassets */,
@@ -140,6 +149,17 @@
 				4BDA954B20F9C9DA00C1A0C0 /* ArduinoIO.swift */,
 			);
 			path = lib;
+			sourceTree = "<group>";
+		};
+		4BEAF620210DF72600E7E888 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				4BEAF618210DF71A00E7E888 /* key2.jpg */,
+				4BEAF619210DF71A00E7E888 /* key1.jpg */,
+				4BEAF61B210DF71B00E7E888 /* key3.jpg */,
+				4BEAF61A210DF71A00E7E888 /* key4.jpg */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 		4BEC70C3210C6C0C007C440B /* keyboardData */ = {
@@ -257,6 +277,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4863123C20EDDB2100790C71 /* Assets.xcassets in Resources */,
+				4BEAF61F210DF71B00E7E888 /* key3.jpg in Resources */,
+				4BEAF61E210DF71B00E7E888 /* key4.jpg in Resources */,
+				4BEAF61D210DF71B00E7E888 /* key1.jpg in Resources */,
+				4BEAF61C210DF71B00E7E888 /* key2.jpg in Resources */,
 				4863123F20EDDB2100790C71 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
