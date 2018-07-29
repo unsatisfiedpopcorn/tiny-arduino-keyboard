@@ -92,12 +92,17 @@ extension io_object_t {
 
 class DeviceWatcher: USBWatcherDelegate {
     private var usbWatcher: USBWatcher!
+    var keyboardAttached: Bool = false
+    
     init() {
         usbWatcher = USBWatcher(delegate: self)
     }
     
     func deviceAdded(_ device: io_object_t) {
         print("device added: \(device.name() ?? "<unknown>")")
+        if (device.name()!.caseInsensitiveCompare("Keyboard") == ComparisonResult.orderedSame) {
+            keyboardAttached = true
+        }
     }
     
     func deviceRemoved(_ device: io_object_t) {

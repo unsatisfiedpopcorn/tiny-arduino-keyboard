@@ -142,24 +142,29 @@ class ViewController: NSViewController {
     //checks for connected device
     let watch = DeviceWatcher()
 
+    /**
+     overrides keyDown events with user key mappings, if arduino keyboard is attached to computer
+     */
     override func keyDown(with event: NSEvent) {
-        let keyPressed = event.keyCode
-        switch (keyPressed) {
-        case 64:
-            //f17
-            keyboardDataCollection[0].executeMapping()
-        case 79:
-            //f18
-            keyboardDataCollection[1].executeMapping()
-        case 80:
-            //f19
-            keyboardDataCollection[2].executeMapping()
-        case 90:
-            //f20
-            keyboardDataCollection[3].executeMapping()
-        default:
-            //            label.stringValue = String(event.keyCode)
-            print("")
+        if (watch.keyboardAttached) {
+            let keyPressed = event.keyCode
+            switch (keyPressed) {
+            case 64:
+                //f17
+                keyboardDataCollection[0].executeMapping()
+            case 79:
+                //f18
+                keyboardDataCollection[1].executeMapping()
+            case 80:
+                //f19
+                keyboardDataCollection[2].executeMapping()
+            case 90:
+                //f20
+                keyboardDataCollection[3].executeMapping()
+            default:
+                //            label.stringValue = String(event.keyCode)
+                print("")
+            }
         }
     }
 }
