@@ -13,7 +13,6 @@
 		4863123F20EDDB2100790C71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4863123D20EDDB2100790C71 /* Main.storyboard */; };
 		4863124B20EDDB2200790C71 /* macroKeysTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4863124A20EDDB2200790C71 /* macroKeysTests.swift */; };
 		4863125620EDDB2200790C71 /* macroKeysUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4863125520EDDB2200790C71 /* macroKeysUITests.swift */; };
-		4B0A2A2F21070B4900C11ECA /* KeyloggerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0A2A2E21070B4900C11ECA /* KeyloggerButton.swift */; };
 		4BDA954C20F9C9DA00C1A0C0 /* ArduinoIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDA954B20F9C9DA00C1A0C0 /* ArduinoIO.swift */; };
 		4BEC70BE210C6711007C440B /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEC70BD210C6711007C440B /* Key.swift */; };
 		4BEC70C0210C6747007C440B /* Modifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEC70BF210C6747007C440B /* Modifier.swift */; };
@@ -51,7 +50,6 @@
 		4863125120EDDB2200790C71 /* macroKeysUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = macroKeysUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4863125520EDDB2200790C71 /* macroKeysUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = macroKeysUITests.swift; sourceTree = "<group>"; };
 		4863125720EDDB2200790C71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4B0A2A2E21070B4900C11ECA /* KeyloggerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyloggerButton.swift; sourceTree = "<group>"; };
 		4BDA954B20F9C9DA00C1A0C0 /* ArduinoIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArduinoIO.swift; sourceTree = "<group>"; };
 		4BEC70BD210C6711007C440B /* Key.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
 		4BEC70BF210C6747007C440B /* Modifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifier.swift; sourceTree = "<group>"; };
@@ -109,7 +107,6 @@
 				4BDA954A20F9C97600C1A0C0 /* lib */,
 				4863123720EDDB2000790C71 /* AppDelegate.swift */,
 				4863123920EDDB2000790C71 /* ViewController.swift */,
-				4B0A2A2D2107052D00C11ECA /* Components */,
 				4863123B20EDDB2100790C71 /* Assets.xcassets */,
 				4863123D20EDDB2100790C71 /* Main.storyboard */,
 				4863124020EDDB2100790C71 /* Info.plist */,
@@ -134,14 +131,6 @@
 				4863125720EDDB2200790C71 /* Info.plist */,
 			);
 			path = macroKeysUITests;
-			sourceTree = "<group>";
-		};
-		4B0A2A2D2107052D00C11ECA /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				4B0A2A2E21070B4900C11ECA /* KeyloggerButton.swift */,
-			);
-			path = Components;
 			sourceTree = "<group>";
 		};
 		4BDA954A20F9C97600C1A0C0 /* lib */ = {
@@ -295,7 +284,6 @@
 			files = (
 				4BDA954C20F9C9DA00C1A0C0 /* ArduinoIO.swift in Sources */,
 				4BEC70C2210C6B02007C440B /* KeyboardData.swift in Sources */,
-				4B0A2A2F21070B4900C11ECA /* KeyloggerButton.swift in Sources */,
 				4863123A20EDDB2000790C71 /* ViewController.swift in Sources */,
 				4863123820EDDB2000790C71 /* AppDelegate.swift in Sources */,
 				4BEC70BE210C6711007C440B /* Key.swift in Sources */,
