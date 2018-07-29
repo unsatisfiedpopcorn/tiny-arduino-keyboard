@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		485A34DC210DF47500372E30 /* deviceWatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485A34DB210DF47500372E30 /* deviceWatcher.swift */; };
 		4863123820EDDB2000790C71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4863123720EDDB2000790C71 /* AppDelegate.swift */; };
 		4863123A20EDDB2000790C71 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4863123920EDDB2000790C71 /* ViewController.swift */; };
 		4863123C20EDDB2100790C71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4863123B20EDDB2100790C71 /* Assets.xcassets */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		485A34DB210DF47500372E30 /* deviceWatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = deviceWatcher.swift; sourceTree = "<group>"; };
 		4863123420EDDB2000790C71 /* macroKeys.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = macroKeys.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4863123720EDDB2000790C71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4863123920EDDB2000790C71 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 			children = (
 				4BEC70C3210C6C0C007C440B /* keyboardData */,
 				4BDA954B20F9C9DA00C1A0C0 /* ArduinoIO.swift */,
+				485A34DB210DF47500372E30 /* deviceWatcher.swift */,
 			);
 			path = lib;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 				4BDA954C20F9C9DA00C1A0C0 /* ArduinoIO.swift in Sources */,
 				4BEC70C2210C6B02007C440B /* KeyboardData.swift in Sources */,
 				4863123A20EDDB2000790C71 /* ViewController.swift in Sources */,
+				485A34DC210DF47500372E30 /* deviceWatcher.swift in Sources */,
 				4863123820EDDB2000790C71 /* AppDelegate.swift in Sources */,
 				4BEC70BE210C6711007C440B /* Key.swift in Sources */,
 				4BEC70C0210C6747007C440B /* Modifier.swift in Sources */,

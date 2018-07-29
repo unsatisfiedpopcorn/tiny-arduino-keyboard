@@ -136,8 +136,12 @@ class ViewController: NSViewController {
             self.keyDown(with: $0)
         }
         updateView()
+        
     }
     
+    //checks for connected device
+    let watch = DeviceWatcher()
+
     override func keyDown(with event: NSEvent) {
         let keyPressed = event.keyCode
         switch (keyPressed) {
