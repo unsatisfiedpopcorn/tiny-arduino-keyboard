@@ -131,12 +131,19 @@ class ViewController: NSViewController {
     
     override func keyDown(with event: NSEvent) {
         let keyPressed = event.keyCode
-        //assuming Key and Modifier classes --> refer to lib folder
-        //fn20 -> keycode=90
         switch (keyPressed) {
-        case 50:
-            //            executeMapping(mapping: keyboardDataCollection[0])
-            print("` key pressed")
+        case 64:
+            //f17
+            executeMapping(mapping: keyboardDataCollection[0])
+        case 79:
+            //f18
+            executeMapping(mapping: keyboardDataCollection[1])
+        case 80:
+            //f19
+            executeMapping(mapping: keyboardDataCollection[2])
+        case 90:
+            //f20
+            executeMapping(mapping: keyboardDataCollection[3])
         default:
             //            label.stringValue = String(event.keyCode)
             print("")
