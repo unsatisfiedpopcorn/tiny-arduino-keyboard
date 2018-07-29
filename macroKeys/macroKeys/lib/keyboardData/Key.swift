@@ -12,8 +12,12 @@ struct Key : Codable, Equatable {
     let keycode: CGKeyCode
     let characters: String?
     
+    /**
+     This equality checker disregards characters
+     $ and 4 are both the same key
+     */
     static func == (lhs: Key, rhs: Key) -> Bool {
-        return lhs.keycode == rhs.keycode && lhs.characters == rhs.characters
+        return lhs.keycode == rhs.keycode
     }
     
     init(keycode: CGKeyCode, char: String) {
@@ -23,7 +27,7 @@ struct Key : Codable, Equatable {
     
     init(withEvent keyEvent: NSEvent) {
         self.keycode = keyEvent.keyCode
-        self.characters = keyEvent.characters
+        self.characters = keyEvent.charactersIgnoringModifiers
     }
     
 }

@@ -20,13 +20,23 @@ struct KeyboardData : Codable, CustomStringConvertible {
     var prevKeys : [Key]
     var prevModifier : Modifier
     public var description: String {
-        guard keys != [] else {
+      
+        let keysDescription = keys
+            .compactMap({$0.characters?.uppercased()})
+            .joined(separator: "+")
+        
+        let modDescription = modifier.char
+        
+        if keysDescription == "" && modDescription == "" {
             return "No Mappings Found"
+        } else if modDescription == "" {
+            return keysDescription
+        } else if keysDescription == "" {
+            return modDescription
+        } else {
+            return "\(modDescription)+\(keysDescription)"
         }
         
-        return keys
-            .compactMap({$0.characters?.uppercased()})
-            .joined(separator: "+")        
     }
     
     init() {
@@ -55,35 +65,41 @@ struct KeyboardData : Codable, CustomStringConvertible {
     }
     
     mutating func startTransaction() {
-        self.prevKeys = self.keys
-        self.keys = []
+        prevKeys = keys
+        keys = []
+        prevModifier = modifier
+        modifier = Modifier()
     }
     
     mutating func commit() {
-        self.prevKeys = self.keys
+        prevKeys = keys
+        prevModifier = modifier
     }
     
     mutating func rollback() {
-        self.keys = self.prevKeys
+        keys = prevKeys
+        modifier = prevModifier
     }
     
     @discardableResult
     mutating func add(keyEvent: NSEvent) -> Bool {
-        // TODO: Support for modifier keys
-        var updated = false
-        let newKey = Key.init(withEvent: keyEvent)
+        let newKey = Key(withEvent: keyEvent)
         
         if keys.contains(newKey) {
             print("No key added")
         } else {
-            self.keys.append(Key.init(withEvent: keyEvent))
-            updated = true
-            print(self.keys)
+            keys.append(Key(withEvent: keyEvent))
         }
-        return updated
+        return keys == prevKeys
+    }
+    
+    @discardableResult
+    mutating func add(bitmask: UInt64) -> Bool {
+        modifier = modifier.or(bitmask: bitmask)
+        return prevModifier == modifier
     }
     
     func didUpdate(onButton sender: NSButton) -> Bool {
-        return self.keys != self.prevKeys
+        return keys != prevKeys
     }
 }
