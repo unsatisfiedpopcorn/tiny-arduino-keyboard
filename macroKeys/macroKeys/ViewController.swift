@@ -14,7 +14,7 @@ class ViewController: NSViewController {
     @IBOutlet weak var keyButton2: NSButton!
     @IBOutlet weak var keyButton3: NSButton!
     @IBOutlet weak var keyButton4: NSButton!
-    
+        
     lazy var keyButtonCollection = [keyButton1, keyButton2, keyButton3, keyButton4]
     var keyboardDataCollection = { () -> [KeyboardData] in  // Uses IIFE to load UserDefaults, if nil then does a fresh init
         if let data = UserDefaults.standard.data(forKey: "SavedBindings") , let decodedData = try? JSONDecoder().decode([KeyboardData].self, from: data) {
@@ -32,6 +32,10 @@ class ViewController: NSViewController {
             }
         }
     }
+    
+    //Monitor for connected USB devices
+    let watch = DeviceWatcher()
+
     
     /*
      Updates the view by repopulating the button.title with its corresponding keyboardData

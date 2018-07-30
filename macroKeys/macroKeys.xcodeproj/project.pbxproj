@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		48208C73210ECD95009E6C1E /* DeviceWatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48208C72210ECD95009E6C1E /* DeviceWatcher.swift */; };
 		4863123820EDDB2000790C71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4863123720EDDB2000790C71 /* AppDelegate.swift */; };
 		4863123A20EDDB2000790C71 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4863123920EDDB2000790C71 /* ViewController.swift */; };
 		4863123C20EDDB2100790C71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4863123B20EDDB2100790C71 /* Assets.xcassets */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		48208C72210ECD95009E6C1E /* DeviceWatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceWatcher.swift; sourceTree = "<group>"; };
 		4863123420EDDB2000790C71 /* macroKeys.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = macroKeys.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4863123720EDDB2000790C71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4863123920EDDB2000790C71 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 			children = (
 				4BEC70C3210C6C0C007C440B /* keyboardData */,
 				4BDA954B20F9C9DA00C1A0C0 /* ArduinoIO.swift */,
+				48208C72210ECD95009E6C1E /* DeviceWatcher.swift */,
 			);
 			path = lib;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 			files = (
 				4BDA954C20F9C9DA00C1A0C0 /* ArduinoIO.swift in Sources */,
 				4BEC70C2210C6B02007C440B /* KeyboardData.swift in Sources */,
+				48208C73210ECD95009E6C1E /* DeviceWatcher.swift in Sources */,
 				4863123A20EDDB2000790C71 /* ViewController.swift in Sources */,
 				4863123820EDDB2000790C71 /* AppDelegate.swift in Sources */,
 				4BEC70BE210C6711007C440B /* Key.swift in Sources */,
