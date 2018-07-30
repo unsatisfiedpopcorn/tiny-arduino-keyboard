@@ -33,11 +33,14 @@ class ViewController: NSViewController {
         }
     }
     
+    //Monitor for connected USB devices
+    let watch = DeviceWatcher()
+    
+    
     /*
      Updates the view by repopulating the button.title with its corresponding keyboardData
      */
     func updateView() {
-      
         keyButtonCollection
             .enumerated()
             .forEach({$0.element?.title = keyboardDataCollection[$0.offset].description})
@@ -137,13 +140,13 @@ class ViewController: NSViewController {
         }
         updateView()
         
+        
     }
     
-    //checks for connected device
-    let watch = DeviceWatcher()
 
     /**
-     overrides keyDown events with user key mappings, if arduino keyboard is attached to computer
+     Overrides keyDown events with user key mappings, if
+     arduino keyboard is attached to computer
      */
     override func keyDown(with event: NSEvent) {
         if (watch.keyboardAttached) {

@@ -10,6 +10,7 @@ import Foundation
 import Foundation
 import IOKit
 import IOKit.usb
+import Cocoa
 
 public protocol USBWatcherDelegate: class {
     /// Called on the main thread when a device is connected.
@@ -19,8 +20,7 @@ public protocol USBWatcherDelegate: class {
     func deviceRemoved(_ device: io_object_t)
 }
 
-/// An object which observes USB devices added and removed from the system.
-/// Abstracts away most of the ugliness of IOKit APIs.
+/// Observes USB devices added and removed from the system.
 public class USBWatcher {
     private weak var delegate: USBWatcherDelegate?
     private let notificationPort = IONotificationPortCreate(kIOMasterPortDefault)
@@ -99,15 +99,19 @@ class DeviceWatcher: USBWatcherDelegate {
     }
     
     func deviceAdded(_ device: io_object_t) {
-        print("device added: \(device.name() ?? "<unknown>")")
         if (device.name()!.caseInsensitiveCompare("Keyboard") == ComparisonResult.orderedSame) {
-            keyboardAttached = true
+            self.keyboardAttached = true
         }
     }
     
     func deviceRemoved(_ device: io_object_t) {
-        print("device removed: \(device.name() ?? "<unknown>")")
+        if (device.name()!.caseInsensitiveCompare("Keyboard") == ComparisonResult.orderedSame) {
+            let alert = NSAlert()
+//            alert.messageText = "- ALERT -\nDevice removed: \(device.name() ?? "<unknown>")"
+            alert.messageText = "- ALERT -\nStickeys removed."
+            alert.runModal()
+            self.keyboardAttached = false
+        }
     }
 }
 
-//let example = DeviceWatcher()
