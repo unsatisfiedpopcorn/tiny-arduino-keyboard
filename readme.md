@@ -1,6 +1,8 @@
-#Tiny Ardunio Keyboard
+# Tiny Ardunio Keyboard
 
 Attempt to design and code a macro keyboard for a school project.
+
+![](https://image.ibb.co/juFX3o/A1-Poster-Better-EST.jpg)
 
 # Initialisation (Obseolete)
 
@@ -29,6 +31,3 @@ With the following `frameworks` (??) below, we could approach the remapping of k
 
 #### IO Kit(Lower-Level):
 -  The IO Kit can interface with devices directly.
-
-### Proposal:
-
